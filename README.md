@@ -10,8 +10,7 @@
 </ul>
 <h2 id="if-youre-good-to-go">If you’re good to go</h2>
 <ul>
-<li>To run the program in PHP alone, open the terminal to where your current directory is and use this command <code>php -S 127.0.0.1:8000 -t `pwd`</code> then go to that URL you provided.</li>
-<li>To run the program with XAMPP, simply go the URL provided by XAMPP or go to <code>localhost:[port#]\SUD_Noblesse</code> or simply <code>localhost\SUD_Noblesse</code></li>
+<li>Simply run the command in your current directory in your terminal <code>php main.php</code></li>
 </ul>
 <h1 id="introduction">Introduction</h1>
 <p>You can choose 1 of the 4 characters: <strong>Frankenstein</strong>, <strong>Muzaka</strong>, <strong>Han Shinwoo</strong>, <strong>M-21</strong>.</p>
