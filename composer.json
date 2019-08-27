@@ -1,0 +1,17 @@
+{
+    "name": "mud/sud_noblesse",
+    "description": "Instead of MUD we'll only create SUD",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Kyle Mercado",
+            "email": "kyle.mercado@fullspeedtechnologies.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Noblesse\\": "Noblesse"
+        }
+    }
+}
