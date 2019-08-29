@@ -1,7 +1,7 @@
 <h2 id="mechanics">Mechanics</h2>
 <p><strong>Rooms</strong></p>
 <ul>
-<li>Rooms are visualised in squared shape.</li>
+<li>System will provide which room is connected to.</li>
 <li>4 Rooms can be traversed back and forth.</li>
 <li>There are 4 or less direction in each room e.g. north, south and south, east, north.</li>
 <li>Some rooms are opened and closed.</li>
