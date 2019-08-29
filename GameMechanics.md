@@ -1,15 +1,15 @@
 <h2 id="mechanics">Mechanics</h2>
 <p><strong>Rooms</strong></p>
 <ul>
-<li>System will provide which room is connected to.</li>
-<li>Rooms can be traversed back and forth.</li>
 <li>There are 4 or less direction in each room e.g. north, south and south, east, north.</li>
+<li>Current room will notify the player which other room/s is connected and directed to.</li>
 <li>Some rooms are opened and closed.</li>
 <li>Closed rooms needed key.
 <ul>
 <li>Traps may appear.</li>
 </ul>
 </li>
+<li>Player can go back and forth to all rooms.</li>
 <li>Signs are available in all rooms.</li>
 </ul>
 <p><strong>Main Character</strong></p>
