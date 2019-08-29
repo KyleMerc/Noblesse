@@ -14,6 +14,7 @@
 </ul>
 <p><strong>Main Character</strong></p>
 <ul>
+<li>There are 4 main characters to choose from.</li>
 <li>Main character has 100 hp.</li>
 <li>Main character has already a weapon and cannot be changed.</li>
 <li>No health regeneration.</li>
@@ -25,7 +26,7 @@
 <ul>
 <li>Enemy has lower than 100 hp except for the boss(the Noblesse).</li>
 <li>Can attack<br>
-- Enemy will first attack if its in waiting at the closed door.</li>
+- Enemy will first attack if it’s waiting at the closed door.</li>
 <li>Enemy may drop item.<br>
 - To unlock room<br>
 - To mix the with other items.</li>
