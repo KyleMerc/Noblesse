@@ -2,7 +2,7 @@
 <p><strong>Rooms</strong></p>
 <ul>
 <li>System will provide which room is connected to.</li>
-<li>4 Rooms can be traversed back and forth.</li>
+<li>Rooms can be traversed back and forth.</li>
 <li>There are 4 or less direction in each room e.g. north, south and south, east, north.</li>
 <li>Some rooms are opened and closed.</li>
 <li>Closed rooms needed key.
@@ -20,7 +20,6 @@
 <li>No health regeneration.</li>
 <li>Once you die the game is restarted.</li>
 <li>Can see status of the Character.</li>
-<li>Fail to wake up the Noblesse(by giving the wrong item once). You will have to fight him.</li>
 </ul>
 <p><strong>Enemy Character</strong></p>
 <ul>
@@ -41,8 +40,14 @@
 <ul>
 <li>Items are spread around the rooms.</li>
 <li>Can grab items.</li>
-<li>Items are only used for rooms &amp; destroying traps and waking up the Noblesse.</li>
-<li>Mix the necessary item to wake up the Noblesse.</li>
+<li>Items are only used for rooms &amp; destroying traps.</li>
+<li>Items can be mixed to make another item.</li>
 <li>You can see your storage.</li>
+</ul>
+<p><strong>Win Condition</strong></p>
+<ul>
+<li>Wake up the Noblesse by giving the required item.<br>
+OR</li>
+<li>If the given item is wrong, the Noblesse will be the last boss.</li>
 </ul>
 
