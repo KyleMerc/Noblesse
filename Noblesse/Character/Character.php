@@ -85,7 +85,7 @@ abstract class Character implements CharacterInterface
 
         $character->setHealth($damage);
 
-        return "Deals ". $damage . " damage";
+        return $this->getCharType() . " deals ". $damage . " damage";
     }
 
     public function flee()

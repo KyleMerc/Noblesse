@@ -4,6 +4,7 @@ namespace Noblesse\Utility;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
+use Noblesse\Character\Character;
 use Noblesse\Character\CharacterFactory;
 
 abstract class MainUtil
@@ -45,4 +46,27 @@ abstract class MainUtil
                 return NULL;
         }
     }
+
+    /**
+     * @param \Noblesse\Character\Character $mainChar
+     * @param \Noblesse\Character\Character $enemy
+     * 
+     */
+    public static function battleStart(Character $mainChar, Character $enemyChar)
+    {
+        $main  = $mainChar->getName();
+        $enemy = $enemyChar->getName();
+
+        $battleMsg = "
+            $main vs $enemy
+            ---------------
+            
+        ";
+
+        while (true) {
+            
+        }
+    }
+
+    // public static function battleOptions(Character)
 }
