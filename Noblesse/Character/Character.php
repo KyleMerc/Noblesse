@@ -5,7 +5,7 @@ namespace Noblesse\Character;
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/CharHelpers.php";
 
-use const Noblesse\Character\{BASE_HEALTH, BASE_DAMAGE};
+use const Noblesse\Character\BASE_HEALTH;
 
 abstract class Character implements CharacterInterface
 {
@@ -47,6 +47,14 @@ abstract class Character implements CharacterInterface
         return $this->damage = rand($this->minDamage, $this->maxDamage);
     }
 
+    public function getMinMaxDamage()
+    {
+        return [
+            'min' => $this->minDamage,
+            'max' => $this->maxDamage
+        ];
+    }
+
     public function getCharType()
     {
         return $this->charType;
@@ -73,7 +81,11 @@ abstract class Character implements CharacterInterface
 
     public function attack(Character $character)
     {
-        $character->setHealth($this->getDamage());
+        $damage = $this->getDamage();
+
+        $character->setHealth($damage);
+
+        return "Deals ". $damage . " damage";
     }
 
     public function flee()

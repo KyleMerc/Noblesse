@@ -10,6 +10,8 @@ abstract class MainUtil
 {
     /**
      * Default values is instantiated in object creation.
+     * @param string $option
+     * @return \Noblesse\Character\Character
      */
     public static function mainCharacter(string $opt)
     {
@@ -27,11 +29,18 @@ abstract class MainUtil
         }
     }
 
+    /**
+     * I've only created 1 enemy for now
+     * @param string $option
+     * @return \Noblesse\Character\Character
+     */
     public static function enemyCharacter(string $opt)
     {
         switch (strtoupper($opt)) {
             case 'V':
-                return CharacterFactory::makeCharacter('Vampire');
+                $vampire = CharacterFactory::makeCharacter('Vampire');
+                $vampire->setHealth(rand(40, 50));
+                return $vampire;
             default:
                 return NULL;
         }

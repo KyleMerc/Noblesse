@@ -16,9 +16,7 @@ abstract class CharacterFactory
     /**
      * @param string $opt
      *  
-     * @return ChararacterInterface Werewolf and Human
-     * 
-     * @return ModifiedHumanInterface SuperModHuman and SimpleModHuman 
+     * @return Chararacter
      */
     public static function makeCharacter(string $newCharacter): Character
     {
