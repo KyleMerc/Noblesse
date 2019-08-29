@@ -26,4 +26,14 @@ abstract class MainUtil
                 return NULL;
         }
     }
+
+    public static function enemyCharacter(string $opt)
+    {
+        switch (strtoupper($opt)) {
+            case 'V':
+                return CharacterFactory::makeCharacter('Vampire');
+            default:
+                return NULL;
+        }
+    }
 }

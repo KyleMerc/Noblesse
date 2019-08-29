@@ -11,9 +11,6 @@ class Werewolf extends Character
      */
     public function __construct()
     {
-        parent::__construct('Muzaka', 'Werewolf', 'Strong Punch');
+        parent::__construct('Muzaka', 'Werewolf', 'Strong Punch', 30);
     }
 }
-
-$obj = new Werewolf();
-echo $obj->getName() . $obj->getWeaponType() . "\n\n";

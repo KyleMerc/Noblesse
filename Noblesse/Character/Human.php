@@ -11,6 +11,6 @@ class Human extends Character
      */
     public function __construct()
     {
-        parent::__construct('Han Shinwoo', 'Human', 'Karate');
+        parent::__construct('Han Shinwoo', 'Human', 'Karate', 45);
     }
 }

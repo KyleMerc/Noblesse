@@ -11,16 +11,19 @@ abstract class Character implements CharacterInterface
     private $charType;
     private $weaponType;
     private $health;
+    private $damage;
 
     public function __construct(
         string $newName, 
         string $newCharType,
-        string $newWeaponType) {
+        string $newWeaponType,
+        int    $charDamage) {
 
         $this->name         = $newName;
         $this->charType     = $newCharType;
         $this->weaponType   = $newWeaponType;
         $this->health       = 100;
+        $this->damage       = $charDamage;
     }
 
     public function setName(string $newName)
@@ -31,6 +34,11 @@ abstract class Character implements CharacterInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getDamage()
+    {
+        return $this->damage;
     }
 
     public function getCharType()
@@ -46,5 +54,15 @@ abstract class Character implements CharacterInterface
     public function getHealth()
     {
         return $this->health;
+    }
+
+    public function setHealth(int $dmgTaken)
+    {
+        $this->health = $this->getHealth() - $dmgTaken;
+    }
+
+    public function attack(Character $character)
+    {
+        $character->setHealth($this->getDamage());
     }
 }

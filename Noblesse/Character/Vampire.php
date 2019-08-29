@@ -11,6 +11,6 @@ class Vampire extends Character
      */
     public function __construct()
     {
-        parent::__construct('Nameless', 'Vampire', 'Claws');
+        parent::__construct('Nameless', 'Vampire', 'Claws', 10);
     }
 }

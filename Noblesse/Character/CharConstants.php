@@ -1,5 +1,10 @@
 <?php
 
-namespace Noblesse\Character;
-
-define('BASE_HEALTH', 100);
+// namespace Noblesse\Character {
+//     const HEALTH = 100;
+//     const BAR = 10;
+// }
+namespace {
+    const HEALTH = 100;
+    const BAR = 10;
+}
