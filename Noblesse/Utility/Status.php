@@ -25,38 +25,34 @@ abstract class Status
 
             $statusMsg = "
                   Room: 
-                  ----------------------------------------
-                  |                                      |
-                     Name: $name
-                  |                                      |
+                  ----------------------------------------------
+                  |                                            |
+                     Name: $name -- Health: $health / 100
+                  |                                            |
                      Character Type: {$modType}{$charType}
-                  |                                      |
-                     Health: $health / 100
-                  |                                      |
+                  |                                            |
                      Weapon: $weapon
-                  |                                      |          
+                  |                                            |          
                      Damage: {$damage['min']} - {$damage['max']}          
-                  |                                      |          
-                  ----------------------------------------
+                  |                                            |          
+                  ----------------------------------------------
             ";
             
             return $statusMsg;
         }
         $statusMsg = "
                   Room: 
-                  ----------------------------------------
-                  |                                      |
-                     Name: $name
-                  |                                      |
+                  ----------------------------------------------
+                  |                                            |
+                     Name: $name -- Health: $health / 100
+                  |                                            |
                      Character Type: $charType
-                  |                                      |
-                     Health: $health / 100
-                  |                                      |
+                  |                                            |
                      Weapon: $weapon
-                  |                                      |          
+                  |                                            |          
                      Damage: {$damage['min']} - {$damage['max']}          
-                  |                                      |          
-                  ----------------------------------------
+                  |                                            |          
+                  ----------------------------------------------
         ";
 
         return $statusMsg;
