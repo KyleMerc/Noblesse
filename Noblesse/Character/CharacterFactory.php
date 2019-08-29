@@ -16,7 +16,7 @@ abstract class CharacterFactory
     /**
      * @param string $opt
      *  
-     * @return Chararacter
+     * @return \Noblesse\Character\Chararacter
      */
     public static function makeCharacter(string $newCharacter): Character
     {

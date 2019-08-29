@@ -37,6 +37,7 @@ abstract class IntroDialogue
 
     /**
      * Start of the story
+     * @param string $characterName
      * @return string[]
      */
     public static function introDialogue($charName)
