@@ -11,6 +11,6 @@ class Werewolf extends Character
      */
     public function __construct()
     {
-        parent::__construct('Muzaka', 'Werewolf', 'Strong Punch', rand(25, 45));
+        parent::__construct('Muzaka', 'Werewolf', 'Strong Punch', 25, 45);
     }
 }

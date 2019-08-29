@@ -3,12 +3,15 @@
 require_once "Noblesse/start.php";
 
 use Noblesse\Utility\MainUtil as Char;
+use Noblesse\Utility\Status;
 
-$mainChar = Char::mainCharacter('f');
+$mainChar = Char::mainCharacter('m2');
 $enemy = Char::enemyCharacter('v');
 
+// echo $mainChar->getModHumanType();
 
-echo $enemy->getHealth() . "\n" . $mainChar->getDamage() . "\n";
-// echo $mainChar->attack($enemy) . "\n";
-// echo $mainChar->attack($enemy) . "\n";
-// echo $mainChar->attack($enemy) . "\n";
+$mainChar->attack($enemy);
+$mainChar->attack($enemy);
+$mainChar->attack($enemy);
+$mainChar->attack($enemy);
+echo Status::status($enemy) . "\n";

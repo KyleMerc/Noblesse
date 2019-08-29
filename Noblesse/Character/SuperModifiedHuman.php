@@ -13,7 +13,7 @@ class SuperModifiedHuman extends Character implements ModifiedHumanInterface
      */
     public function __construct()
     {
-        parent::__construct('Frankenstein', 'ModifiedHuman', 'Dark Spear', rand(30, 50));
+        parent::__construct('Frankenstein', 'ModifiedHuman', 'Dark Spear', 30, 50);
         $this->modHumanType = 'Super';
     }
 

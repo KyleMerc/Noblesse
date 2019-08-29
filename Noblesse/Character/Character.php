@@ -14,18 +14,22 @@ abstract class Character implements CharacterInterface
     private $weaponType;
     private $health;
     private $damage;
+    private $minDamage;
+    private $maxDamage;
 
     public function __construct(
         string $newName, 
         string $newCharType,
         string $newWeaponType,
-        float  $charDmg) {
+        int    $newMinDamage,
+        int    $newMaxDamage) {
 
         $this->name         = $newName;
         $this->charType     = $newCharType;
         $this->weaponType   = $newWeaponType;
         $this->health       = BASE_HEALTH;
-        $this->damage       = $charDmg;
+        $this->minDamage    = $newMinDamage;
+        $this->maxDamage    = $newMaxDamage;
     }
 
     public function setName(string $newName)
@@ -40,7 +44,7 @@ abstract class Character implements CharacterInterface
 
     public function getDamage()
     {
-        return $this->damage;
+        return $this->damage = rand($this->minDamage, $this->maxDamage);
     }
 
     public function getCharType()
@@ -61,12 +65,19 @@ abstract class Character implements CharacterInterface
     public function setHealth(int $dmgTaken)
     {
         $this->health = $this->getHealth() - $dmgTaken;
+
+        if ($this->health <= 0) {
+            $this->health = 0;
+        }
     }
 
     public function attack(Character $character)
     {
-        // return $character->setHealth($this->getDamage());
-        // return $this->getDamage();
-        return mt_rand(0.14, 0.54);
+        $character->setHealth($this->getDamage());
+    }
+
+    public function flee()
+    {
+        return true;
     }
 }

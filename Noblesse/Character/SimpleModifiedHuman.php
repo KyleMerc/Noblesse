@@ -13,7 +13,7 @@ class SimpleModifiedHuman extends Character implements ModifiedHumanInterface
      */
     public function __construct()
     {
-        parent::__construct('M-21', 'ModifiedHuman', 'Gun', rand(20, 30));
+        parent::__construct('M-21', 'ModifiedHuman', 'Gun', 20, 30);
         $this->modHumanType = 'Simple';
     }
     

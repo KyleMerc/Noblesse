@@ -20,7 +20,7 @@ abstract class CharacterFactory
      * 
      * @return ModifiedHumanInterface SuperModHuman and SimpleModHuman 
      */
-    public static function makeCharacter(string $newCharacter)
+    public static function makeCharacter(string $newCharacter): Character
     {
         switch ($newCharacter) {
             case 'Human':
