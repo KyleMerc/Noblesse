@@ -10,7 +10,11 @@
 </ul>
 </li>
 <li>Player can go back and forth to all rooms.</li>
-<li>Signs are available in all rooms.</li>
+<li>Signs are available in all rooms.
+<ul>
+<li>It will show hints or trivia.</li>
+</ul>
+</li>
 </ul>
 <p><strong>Main Character</strong></p>
 <ul>
