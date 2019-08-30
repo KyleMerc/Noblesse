@@ -52,6 +52,7 @@ abstract class MainUtil
      * @param \Noblesse\Character\Character $enemy
      * 
      */
+<<<<<<< HEAD
     public static function battleStart(Character $mainChar, Character $enemyChar, bool $enemyWaiting = false)
     {
         $main  = $mainChar->getName();
@@ -116,4 +117,23 @@ abstract class MainUtil
     //         return false;
     //     }
     // }
+=======
+    public static function battleStart(Character $mainChar, Character $enemyChar)
+    {
+        $main  = $mainChar->getName();
+        $enemy = $enemyChar->getName();
+
+        $battleMsg = "
+            $main vs $enemy
+            ---------------
+            
+        ";
+
+        while (true) {
+            
+        }
+    }
+
+    // public static function battleOptions(Character)
+>>>>>>> 67f19bf71be213643794c7f79a5c9933ef178e43
 }
