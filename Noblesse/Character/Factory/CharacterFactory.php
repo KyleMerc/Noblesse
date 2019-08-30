@@ -1,22 +1,22 @@
 <?php
 
-namespace Noblesse\Character;
+namespace Noblesse\Character\Factory;
 
 require $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
-use Noblesse\Character\Human;
-use Noblesse\Character\Vampire;
-use Noblesse\Character\Werewolf;
-use Noblesse\Character\SimpleModifiedHuman;
-use Noblesse\Character\SuperModifiedHuman;
-
+use Noblesse\Character\Character;
+use Noblesse\Character\CharacterType\Human;
+use Noblesse\Character\CharacterType\Vampire;
+use Noblesse\Character\CharacterType\Werewolf;
+use Noblesse\Character\CharacterType\SimpleModifiedHuman;
+use Noblesse\Character\CharacterType\SuperModifiedHuman;
 
 abstract class CharacterFactory
 {
     /**
      * @param string $opt
      *  
-     * @return Chararacter
+     * @return \Noblesse\Character\Character
      */
     public static function makeCharacter(string $newCharacter): Character
     {

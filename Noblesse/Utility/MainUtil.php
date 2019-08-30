@@ -5,7 +5,7 @@ namespace Noblesse\Utility;
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
 use Noblesse\Character\Character;
-use Noblesse\Character\CharacterFactory;
+use Noblesse\Character\Factory\CharacterFactory;
 
 abstract class MainUtil
 {

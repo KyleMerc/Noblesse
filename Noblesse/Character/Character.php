@@ -3,10 +3,11 @@
 namespace Noblesse\Character;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/CharHelpers.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/Constants/CharHelpers.php";
 
-use const Noblesse\Character\BASE_HEALTH;
+use Noblesse\Character\Interfaces\CharacterInterface;
 
+use const Noblesse\Character\Constants\BASE_HEALTH;
 abstract class Character implements CharacterInterface
 {
     private $name;

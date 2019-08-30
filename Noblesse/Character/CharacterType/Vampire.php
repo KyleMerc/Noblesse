@@ -1,8 +1,10 @@
 <?php
 
-namespace Noblesse\Character;
+namespace Noblesse\Character\CharacterType;
 
 require $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
+
+use Noblesse\Character\Character;
 
 class Vampire extends Character
 {

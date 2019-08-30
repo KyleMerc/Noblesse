@@ -5,7 +5,7 @@ require_once "Noblesse/start.php";
 use Noblesse\Utility\MainUtil as Char;
 use Noblesse\Utility\Status;
 
-$mainChar = Char::mainCharacter('h');
+$mainChar = Char::mainCharacter('m2');
 
 $result = Char::battleStart($mainChar, Char::enemyCharacter('v'), true);
 // echo $result . "\n";
