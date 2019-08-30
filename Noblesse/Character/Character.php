@@ -3,10 +3,11 @@
 namespace Noblesse\Character;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/CharHelpers.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/Helpers/CharHelpers.php";
 
-use const Noblesse\Character\BASE_HEALTH;
+use Noblesse\Character\Interfaces\CharacterInterface;
 
+use const Noblesse\Character\Helpers\BASE_HEALTH;
 abstract class Character implements CharacterInterface
 {
     private $name;
@@ -16,7 +17,17 @@ abstract class Character implements CharacterInterface
     private $damage;
     private $minDamage;
     private $maxDamage;
-
+    
+    /**
+     * Characteristics are defined
+     * @param string $newName       Name for the character
+     * @param string $newCharType   Type of character
+     * @param string $newWeaponType Fixed and cannot be changed
+     * @param int    $newMinDamage  Minimum damage of weapon
+     * @param int    $newMaxDamage  Maximum damage of weapon
+     * 
+     * @var   int    $health        Default 100 
+     */
     public function __construct(
         string $newName, 
         string $newCharType,
@@ -42,11 +53,17 @@ abstract class Character implements CharacterInterface
         return $this->name;
     }
 
+    /**
+     * @return int Random int
+     */
     public function getDamage()
     {
         return $this->damage = rand($this->minDamage, $this->maxDamage);
     }
 
+    /**
+     * @return array Minimum and Max damage of the character
+     */
     public function getMinMaxDamage()
     {
         return [
@@ -70,6 +87,13 @@ abstract class Character implements CharacterInterface
         return $this->health;
     }
 
+    /**
+     * It sets the health to the damage taken by
+     * the character.
+     * 
+     * @param integer $dmgTaken
+     * @return void
+     */
     public function setHealth(int $dmgTaken)
     {
         $this->health = $this->getHealth() - $dmgTaken;
@@ -79,15 +103,23 @@ abstract class Character implements CharacterInterface
         }
     }
 
+    /**
+     * @param Character $character
+     * @return string   Message about this character deals amount of damage
+     */
     public function attack(Character $character)
     {
         $damage = $this->getDamage();
 
         $character->setHealth($damage);
 
-        return "Deals ". $damage . " damage";
+        return "\t    " . $this->getName() . " deals ". $damage . " damage\n";
     }
 
+    /**
+     * @return bool Still thinking this might be useful
+     * but not used right now.
+     */
     public function flee()
     {
         return true;

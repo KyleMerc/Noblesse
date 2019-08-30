@@ -1,6 +1,6 @@
 <?php
 
-namespace Noblesse\Character;
+namespace Noblesse\Character\Interfaces;
 
 interface CharacterInterface
 {

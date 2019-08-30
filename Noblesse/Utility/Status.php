@@ -35,8 +35,7 @@ abstract class Status
                   |                                            |          
                      Damage: {$damage['min']} - {$damage['max']}          
                   |                                            |          
-                  ----------------------------------------------
-            ";
+                  ----------------------------------------------\n";
             
             return $statusMsg;
         }
@@ -52,8 +51,7 @@ abstract class Status
                   |                                            |          
                      Damage: {$damage['min']} - {$damage['max']}          
                   |                                            |          
-                  ----------------------------------------------
-        ";
+                  ----------------------------------------------\n";
 
         return $statusMsg;
     }
