@@ -53,6 +53,9 @@ abstract class Character implements CharacterInterface
         return $this->name;
     }
 
+    /**
+     * @return int Random int
+     */
     public function getDamage()
     {
         return $this->damage = rand($this->minDamage, $this->maxDamage);
