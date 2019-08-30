@@ -17,12 +17,8 @@ $mainChar = Char::mainCharacter('h');
 //     }
 // }
 
-<<<<<<< HEAD
 $result = Char::battleStart($mainChar, Char::enemyCharacter('v'), true);
 // echo $result . "\n";
-=======
-Char::battleStart($mainChar, $enemy);
->>>>>>> 67f19bf71be213643794c7f79a5c9933ef178e43
 echo Status::status($mainChar);
 
 // while (true) {
