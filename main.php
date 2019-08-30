@@ -6,16 +6,6 @@ use Noblesse\Utility\MainUtil as Char;
 use Noblesse\Utility\Status;
 
 $mainChar = Char::mainCharacter('h');
-// $enemy = ;
-
-// echo $mainChar->getModHumanType();
-// echo Status::status($enemy) . "\n";
-// while (true) {
-//     echo $enemy->attack($mainChar) . "\n";
-//     if ($mainChar->getHealth() < 30) {
-//         if($mainChar->flee()) break;    
-//     }
-// }
 
 $result = Char::battleStart($mainChar, Char::enemyCharacter('v'), true);
 // echo $result . "\n";

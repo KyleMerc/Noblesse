@@ -17,10 +17,15 @@
 2. CharacterFactory
 
 **Explanation**
-Character implements CharacterInterface
-    Theses 4 extends Character class:
-    SimpleModifiedHuman
-    SuperModifiedHuman
-    Vampire
-    Werewolf
-    Human
+To create a character use the
+Char::mainCharacter(); 1 param: letter string = h, m, m2, f
+Char::enemyCharacter(); 1 param: letter string = v
+
+To see the status use the
+Status::status(); 1 param: Character object
+                    example: $mainChar = Char::mainCharacter('h), $enemyChar = Char::enemyCharacter('v)
+
+To battle against enemy use the
+Char::battleStart() 3 param: 1st Character $mainChar  , 2nd Character $enemyChar, 3rd boolean $enemyWaiting - an ambush
+                    return string: 'victory' or 'game over'
+                    example: Char::battleStart($mainChar, $enemyChar, true);

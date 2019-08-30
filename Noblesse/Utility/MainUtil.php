@@ -51,6 +51,7 @@ abstract class MainUtil
      * @param \Noblesse\Character\Character $mainChar
      * @param \Noblesse\Character\Character $enemy
      * 
+     * @return string
      */
     public static function battleStart(Character $mainChar, Character $enemyChar, bool $enemyWaiting = false)
     {
@@ -107,13 +108,4 @@ abstract class MainUtil
             } else echo "\t    What?\n";
         }
     }
-
-    // public static function victory(Character $mainChar, Character $enemyChar)
-    // {
-    //     if ($enemyChar->getHealth() == 0) {
-    //         return true;
-    //     } elseif ($mainChar->getHealth() == 0) {
-    //         return false;
-    //     }
-    // }
 }
