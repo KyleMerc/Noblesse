@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
 use Noblesse\Storyline\Map;
 
-class FirstMap extends Map
+class FirstRoom extends Map
 {
 
     public function __construct()
@@ -21,9 +21,7 @@ class FirstMap extends Map
             ['found' , true]
         );
     }
-
-    public function direction()
-    {
-        
-    }
 }
+
+$obj = new FirstMap();
+echo $obj->getRoomName();

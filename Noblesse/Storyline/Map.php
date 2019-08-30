@@ -53,6 +53,20 @@ abstract class Map
         ];
     }
 
+    public function openDoor(bool $key, string $door)
+    {
+        switch ($door) {
+            case 'north':
+                $this->northDoor[1] = $key;
+            case 'east':
+                $this->eastDoor[1]  = $key;
+            case 'south':
+                $this->southDoor[1] = $key;
+            case 'west':
+                $this->westDoor[1]  = $key;
+        }
+    }
+
     public function getTrapCount()
     {
         return $this->trapCount;

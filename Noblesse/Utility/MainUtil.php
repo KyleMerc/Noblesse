@@ -89,11 +89,13 @@ abstract class MainUtil
             $option = readline("\t    Choose: ");
             echo "\n";
 
-            if (strtolower($option) === 'atk' || strtolower($option) === 'attack') {
+            if (strtolower($option) === 'atk') {
                 echo "\t    ============\n";
-                echo $mainChar->attack($enemyChar) . "\n" . $enemyChar->attack($mainChar);
+                echo $mainChar->attack($enemyChar) . "\n";
+                sleep(1);
+                echo $enemyChar->attack($mainChar);
                 echo "\t    ============\n";
-
+                sleep(1);
                 if($enemyChar->getHealth() == 0) {
                     echo "\t    You have killed the enemy\n";
                     return 'victory';
@@ -105,7 +107,7 @@ abstract class MainUtil
                 // $flee = $mainChar->flee();
                 echo "\t    You ran away\n";
                 break;
-            } else echo "\t    What?\n";
+            } else echo "\t    Invalid command\n";
         }
     }
 }

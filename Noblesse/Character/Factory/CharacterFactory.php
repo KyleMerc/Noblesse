@@ -16,11 +16,7 @@ abstract class CharacterFactory
     /**
      * @param string $opt
      *  
-<<<<<<< HEAD:Noblesse/Character/CharacterFactory.php
-     * @return \Noblesse\Character\Chararacter
-=======
      * @return \Noblesse\Character\Character
->>>>>>> character:Noblesse/Character/Factory/CharacterFactory.php
      */
     public static function makeCharacter(string $newCharacter): Character
     {
