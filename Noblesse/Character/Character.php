@@ -3,11 +3,11 @@
 namespace Noblesse\Character;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/Constants/CharHelpers.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/Helpers/CharHelpers.php";
 
 use Noblesse\Character\Interfaces\CharacterInterface;
 
-use const Noblesse\Character\Constants\BASE_HEALTH;
+use const Noblesse\Character\Helpers\BASE_HEALTH;
 abstract class Character implements CharacterInterface
 {
     private $name;
@@ -17,7 +17,17 @@ abstract class Character implements CharacterInterface
     private $damage;
     private $minDamage;
     private $maxDamage;
-
+    
+    /**
+     * Characteristics are defined
+     * @param string $newName       Name for the character
+     * @param string $newCharType   Type of character
+     * @param string $newWeaponType Fixed and cannot be changed
+     * @param int    $newMinDamage  Minimum damage of weapon
+     * @param int    $newMaxDamage  Maximum damage of weapon
+     * 
+     * @var   int    $health        Default 100 
+     */
     public function __construct(
         string $newName, 
         string $newCharType,
@@ -48,6 +58,9 @@ abstract class Character implements CharacterInterface
         return $this->damage = rand($this->minDamage, $this->maxDamage);
     }
 
+    /**
+     * @return array Minimum and Max damage of the character
+     */
     public function getMinMaxDamage()
     {
         return [
@@ -71,6 +84,13 @@ abstract class Character implements CharacterInterface
         return $this->health;
     }
 
+    /**
+     * It sets the health to the damage taken by
+     * the character.
+     * 
+     * @param integer $dmgTaken
+     * @return void
+     */
     public function setHealth(int $dmgTaken)
     {
         $this->health = $this->getHealth() - $dmgTaken;
@@ -80,6 +100,10 @@ abstract class Character implements CharacterInterface
         }
     }
 
+    /**
+     * @param Character $character
+     * @return string   Message about this character deals amount of damage
+     */
     public function attack(Character $character)
     {
         $damage = $this->getDamage();
@@ -89,6 +113,10 @@ abstract class Character implements CharacterInterface
         return "\t    " . $this->getName() . " deals ". $damage . " damage\n";
     }
 
+    /**
+     * @return bool Still thinking this might be useful
+     * but not used right now.
+     */
     public function flee()
     {
         return true;

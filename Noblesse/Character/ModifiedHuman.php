@@ -8,6 +8,11 @@ abstract class ModifiedHuman extends Character
 {
     private $modHumanType;
 
+    /**
+     * It just the same with character added
+     * with ModHumanType
+     * @param string $modHumanType Simple or Super
+     */
     public function __construct(
         string $newName, 
         string $newCharType, 

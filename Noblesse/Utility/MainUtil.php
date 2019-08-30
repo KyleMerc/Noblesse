@@ -51,7 +51,7 @@ abstract class MainUtil
      * @param \Noblesse\Character\Character $mainChar
      * @param \Noblesse\Character\Character $enemy
      * 
-     * @return string
+     * @return string fleed, victory, game over
      */
     public static function battleStart(Character $mainChar, Character $enemyChar, bool $enemyWaiting = false)
     {
@@ -79,7 +79,7 @@ abstract class MainUtil
 
         echo "\t    A battle has started\n";
 
-        if ($enemyWaiting) {
+        if ($enemyWaiting) {  #Set at the call of the function
             echo "\n\t    Enemy was waiting at the the door!\n";
             echo $enemyChar->attack($mainChar);
         }
