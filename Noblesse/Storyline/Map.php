@@ -30,10 +30,10 @@ abstract class Map
         ) {
 
         $this->roomName     = $newRoomName;
-        $this->northDoor    = ['is_found' => $northDoor[0], 'is_locked' => $northDoor[1]];
-        $this->eastDoor     = ['is_found' => $eastDoor[0] , 'is_locked' => $eastDoor[1]];
-        $this->southDoor    = ['is_found' => $southDoor[0], 'is_locked' => $southDoor[1]];
-        $this->westDoor     = ['is_found' => $westDoor[0] , 'is_locked' => $westDoor[1]];
+        $this->northDoor    = ['is_found' => $northDoor[0]];
+        $this->eastDoor     = ['is_found' => $eastDoor[0]];
+        $this->southDoor    = ['is_found' => $southDoor[0]];
+        $this->westDoor     = ['is_found' => $westDoor[0]];
         $this->trapCount    = $traps;
         $this->itemCount    = $items;
     }

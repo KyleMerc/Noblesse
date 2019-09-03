@@ -1,6 +1,6 @@
 <?php
 
-namespace Noblesse\Storyline\Frankenstein;
+namespace Noblesse\Storyline\M_21;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
@@ -11,12 +11,12 @@ class SecondRoom extends Map
     public function __construct()
     {
         parent::__construct(
-            'Kitchen',
+            'Gallery',
             1,
             2,
+            ['found'],
             ['notFound'],
-            ['notFound'],
-            ['notFound'],
+            ['found'],
             ['found']
         );
     }

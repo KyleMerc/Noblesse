@@ -15,13 +15,10 @@ class FirstRoom extends Map
             'Upper Main Floor',
             2,
             1,
-            [],
-            ['found' , true],
-            ['found' , false],
-            ['found' , true]
+            ['notFound'],
+            ['found'],
+            ['found'],
+            ['found']
         );
     }
 }
-
-$obj = new FirstMap();
-echo $obj->getRoomName();

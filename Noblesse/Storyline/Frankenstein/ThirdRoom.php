@@ -2,6 +2,8 @@
 
 namespace Noblesse\Storyline\Frankenstein;
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
+
 use Noblesse\Storyline\Map;
 
 class ThirdRoom extends Map
@@ -13,9 +15,9 @@ class ThirdRoom extends Map
             3,
             1,
             ['found'],
-            [],
-            [],
-            []
+            ['notFound'],
+            ['notFound'],
+            ['notFound']
         );
     }
 }

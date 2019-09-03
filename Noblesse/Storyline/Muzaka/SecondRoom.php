@@ -1,6 +1,6 @@
 <?php
 
-namespace Noblesse\Storyline\Frankenstein;
+namespace Noblesse\Storyline\Muzaka;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
@@ -15,9 +15,9 @@ class SecondRoom extends Map
             1,
             2,
             ['notFound'],
+            ['found'],
             ['notFound'],
-            ['notFound'],
-            ['found']
+            ['notFound']
         );
     }
 }
