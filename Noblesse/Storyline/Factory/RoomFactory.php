@@ -4,25 +4,25 @@ namespace Noblesse\Storyline\Factory;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
-use Noblesse\Storyline\Frankenstein\{
+use Noblesse\Storyline\CharacterMap\Frankenstein\{
     FirstRoom   as FrankFirstR, 
     SecondRoom  as FrankSecondR, 
     ThirdRoom   as FrankThirdR, 
     FourthRoom  as FrankFourthR
 };
-use Noblesse\Storyline\M_21\{
+use Noblesse\Storyline\CharacterMap\M_21\{
     FirstRoom   as M21FirstR, 
     SecondRoom  as M21SecondR, 
     ThirdRoom   as M21ThirdR, 
     FourthRoom  as M21FourthR
 };
-use Noblesse\Storyline\Muzaka\{
+use Noblesse\Storyline\CharacterMap\Muzaka\{
     FirstRoom   as MuzakaFirstR, 
     SecondRoom  as MuzakaSecondR, 
     ThirdRoom   as MuzakaThirdR, 
     FourthRoom  as MuzakaFourthR
 };
-use Noblesse\Storyline\Han_Shinwoo\{
+use Noblesse\Storyline\CharacterMap\Han_Shinwoo\{
     FirstRoom   as HanFirstR, 
     SecondRoom  as HanSecondR, 
     ThirdRoom   as HanThirdR, 
@@ -35,12 +35,19 @@ abstract class RoomFactory
     {
         switch ($mainCharName) {
             case 'Frankenstein':
-                return [
+                $rooms = [
                     'firstRoom'     => new FrankFirstR(),
                     'secondRoom'    => new FrankSecondR(),
                     'thirdRoom'     => new FrankThirdR(),
                     'fourthRoom'    => new FrankFourthR(),
                 ];
+
+                // $rooms['firstRoom']->east($rooms['secondRoom']);
+                // $rooms['firstRoom']->south($rooms['fourthRoom']);
+                // $rooms['firstRoom']->west($rooms['thirdRoom']);
+
+                return $rooms;
+                
             case 'M-21':
                 return [
                     'firstRoom'     => new M21FirstR(),
@@ -63,6 +70,5 @@ abstract class RoomFactory
                     'fourthRoom'    => new HanFourthR(),
                 ];
         }
-        
     }
 }

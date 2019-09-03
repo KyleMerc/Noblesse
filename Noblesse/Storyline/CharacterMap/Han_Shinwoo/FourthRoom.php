@@ -1,24 +1,23 @@
 <?php
 
-namespace Noblesse\Storyline\Muzaka;
+namespace Noblesse\Storyline\CharacterMap\Han_Shinwoo;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
 use Noblesse\Storyline\Map;
 
-class FirstRoom extends Map
+class FourthRoom extends Map
 {
-
     public function __construct()
     {
         parent::__construct(
-            'Basement',
+            'Drawing Room',
             2,
-            1,
+            2,
+            ['Found'],
             ['notFound'],
-            ['found'],
             ['notFound'],
-            ['found']
+            ['notFound']
         );
     }
 }

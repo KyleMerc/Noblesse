@@ -2,7 +2,10 @@
 
 namespace Noblesse\Storyline;
 
-abstract class Map
+require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
+
+use Noblesse\Storyline\Interfaces\MapInterface;
+abstract class Map implements MapInterface
 {
     private $roomName;
     private $northDoor;
@@ -43,7 +46,11 @@ abstract class Map
         return $this->roomName;
     }
 
-    public function getDoorState()
+    /**
+     *
+     * @return array[][] Array key ['is_found'] value found / notFound
+     */
+    public function getFoundDoors()
     {
         return [
             'north' => $this->northDoor,
@@ -75,5 +82,41 @@ abstract class Map
     public function getItemCount()
     {
         return $this->itemCount;
+    }
+
+    public function north(Map $room = NULL)
+    {
+        // $doorFound = $this->getFoundDoors()['north']['is_found'];
+
+        // if ($doorFound === 'notFound' && $room === NULL) return NULL;
+
+        return $room;
+    }
+
+    public function east(Map $room = NULL)
+    {
+        // $doorFound = $this->getFoundDoors()['east']['is_found'];
+
+        // if ($doorFound === 'notFound' && $room === NULL) return NULL;
+
+        return $room;
+    }
+
+    public function south(Map $room = NULL)
+    {
+        // $doorFound = $this->getFoundDoors()['south']['is_found'];
+
+        // if ($doorFound == 'notFound' && $room === NULL) return NULL;
+
+        return $room;
+    }
+
+    public function west(Map $room = NULL)
+    {
+        // $doorFound = $this->getFoundDoors()['west']['is_found'];
+
+        // if ($doorFound == 'notFound' && $room === NULL) return NULL;
+
+        return $room;
     }
 }

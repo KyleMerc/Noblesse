@@ -1,22 +1,22 @@
 <?php
 
-namespace Noblesse\Storyline\M_21;
+namespace Noblesse\Storyline\CharacterMap\Frankenstein;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
 use Noblesse\Storyline\Map;
 
-class FourthRoom extends Map
+class ThirdRoom extends Map
 {
     public function __construct()
     {
         parent::__construct(
-            'Drawing Room',
-            2,
-            2,
+            'Bedroom',
+            3,
+            1,
+            ['found'],
             ['notFound'],
             ['notFound'],
-            ['Found'],
             ['notFound']
         );
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Noblesse\Storyline\Muzaka;
+namespace Noblesse\Storyline\CharacterMap\M_21;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
@@ -11,13 +11,13 @@ class ThirdRoom extends Map
     public function __construct()
     {
         parent::__construct(
-            'Great Hall',
+            'Rest Room',
             3,
             1,
-            ['notFound'],
-            ['notFound'],
             ['found'],
-            ['found']
+            ['notFound'],
+            ['notFound'],
+            ['notFound']
         );
     }
 }

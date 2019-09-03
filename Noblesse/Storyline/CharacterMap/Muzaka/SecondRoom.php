@@ -1,6 +1,6 @@
 <?php
 
-namespace Noblesse\Storyline\Muzaka;
+namespace Noblesse\Storyline\CharacterMap\Muzaka;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 

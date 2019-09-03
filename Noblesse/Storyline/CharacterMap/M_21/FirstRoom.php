@@ -1,18 +1,19 @@
 <?php
 
-namespace Noblesse\Storyline\Han_Shinwoo;
+namespace Noblesse\Storyline\CharacterMap\M_21;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
 use Noblesse\Storyline\Map;
 
-class ThirdRoom extends Map
+class FirstRoom extends Map
 {
+
     public function __construct()
     {
         parent::__construct(
-            'Secret Room',
-            3,
+            'Entrance Hall',
+            2,
             1,
             ['notFound'],
             ['found'],
