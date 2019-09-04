@@ -45,6 +45,8 @@ class RoomExploration
     }
 }
 
+//I have to rearrange this for tomorrow
+//You can change the map by changing the character name: M-21, Han Shinwoo, Muzaka, Frankenstein
 $roomSetup      = new RoomExploration('Han Shinwoo');
 
 $room           = $roomSetup->getRooms();
@@ -58,22 +60,23 @@ $currentRoom = $room['firstRoom']['currentRoom'];
 
 while (true) {
     echo "Current Room: " . $currentRoom->getRoomName() . "\n\n";
-
-    $opt = readline("Where to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
-
-    if (preg_match($regexDirection, $opt) == 0) {
-        echo "Invalid command...\n";
-    }
-
-    // foreach ($currentRoom->getFoundDoors() as $key => $foundDoor)
-    // {
-    //     if ($foundDoor['is_found'] == 'found') {
-    //         $numberOfDoors++;
-    //     }
-    // }
-
     
-    // . "\n$numberOfDoors door/s found\n\n";
+    $availableRooms = '';
+    
+    if ($room[$currentRoom->getRoomOrder()]['north']) 
+        $availableRooms  .= 'North: ' . $room[$currentRoom->getRoomOrder()]['north']->getRoomName() . "\n";
+    if ($room[$currentRoom->getRoomOrder()]['east'])  
+        $availableRooms  .= 'East: '  . $room[$currentRoom->getRoomOrder()]['east']->getRoomName()  . "\n";
+    if ($room[$currentRoom->getRoomOrder()]['south']) 
+        $availableRooms  .= 'South: ' . $room[$currentRoom->getRoomOrder()]['south']->getRoomName() . "\n";
+    if ($room[$currentRoom->getRoomOrder()]['west'])  
+        $availableRooms  .= 'West: '  . $room[$currentRoom->getRoomOrder()]['west']->getRoomName()  . "\n";
+
+    echo $availableRooms;
+    
+
+    $opt = readline("\nWhere to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
+
     if (strtolower($opt) === 'q') break;
 
     switch (strtolower($opt)) {
@@ -96,10 +99,10 @@ while (true) {
     }
 
     if ($nextRoom != NULL) {
-        echo 'Next room: ' . $nextRoom->getRoomName() . "\n";
         $currentRoom = $nextRoom;
-    }    
-}
+    }
 
-// $currentRoom = $room['secondRoom']['currentRoom'];
-// echo $currentRoom->getRoomOrder() . "\n";
+    if (preg_match($regexDirection, $opt) == 0) {
+        echo "Invalid command...\n";
+    }
+}
