@@ -77,6 +77,10 @@ while (true) {
 
     $opt = readline("\nWhere to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
 
+    if (preg_match($regexDirection, $opt) == 0) {
+        echo "Invalid command...\n";
+    }
+
     if (strtolower($opt) === 'q') break;
 
     switch (strtolower($opt)) {
@@ -100,9 +104,5 @@ while (true) {
 
     if ($nextRoom != NULL) {
         $currentRoom = $nextRoom;
-    }
-
-    if (preg_match($regexDirection, $opt) == 0) {
-        echo "Invalid command...\n";
     }
 }

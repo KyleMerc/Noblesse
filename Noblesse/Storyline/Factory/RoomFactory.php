@@ -49,11 +49,7 @@ abstract class RoomFactory
                 $fourthRoom = new FrankFourthR();
 
                 $rooms['firstRoom'] = [
-                    'currentRoom' => $firstRoom,
-                    'north'       => NULL,
-                    'east'        => $secondRoom,
-                    'south'       => $fourthRoom,
-                    'west'        => $thirdRoom
+                    firstRoom('Frankenstein', $firstRoom, NULL, $secondRoom, $fourthRoom, $thirdRoom)
                 ];
                 $rooms['secondRoom'] = [
                     'currentRoom' => $secondRoom,
@@ -197,4 +193,25 @@ abstract class RoomFactory
                 return $rooms;
         }
     }
+
+    public function firstRoom(
+        string $mainCharName,
+        Map $currentRoom, 
+        Map $newFirstRoom   = NULL, 
+        Map $newSecondRoom  = NULL, 
+        Map $newThirdRoom   = NULL, 
+        Map $newFourthRoom  = NULL 
+    ) {
+
+        if ($mainCharName == 'Frankenstein') {
+            return [
+                'currentRoom'   => $currentRoom,
+                'north'         => NULL,
+                'east'          => $newSecondRoom,
+                'south'         => $newFourthRoom,
+                'west'          => $newThirdRoom ];
+        }
+    }
 }
+
+var_dump(RoomFactory::setCharacterRooms('Frankenstein'));
