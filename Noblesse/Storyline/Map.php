@@ -14,6 +14,8 @@ abstract class Map implements MapInterface
     private $westDoor;
     private $trapCount;
     private $itemCount;
+
+    private $room;
     
 
     /**

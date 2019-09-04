@@ -29,7 +29,7 @@ class RoomExploration
      * @param string $room
      * @return \Noblesse\Storyline\Map
      */
-    public function goToRoom(string $direction)
+    public function goToRoom(Map $currentRoom, string $direction)
     {
         // switch ($room) {
         //     case 'First' :
@@ -42,23 +42,41 @@ class RoomExploration
         //         return $this->rooms['fourthRoom'];
         // }
 
-        switch ($direction) {
-            case 'north':
-
+        switch (true) {
+            case $currentRoom['']:
+                return 'Im alive!!';
         }
+    }
+
+    public function explore()
+    {
+        return $this->rooms;
     }
 }
 
-$room = new RoomExploration('Frankenstein');
+$rooms = new RoomExploration('Frankenstein');
+$room = $rooms->explore();
 
-// $currentRoom = $room->goToRoom('First');
-// echo $room['firstRoom']->getRoomName() . "\n";
-var_dump($room['firstRoom']);
+$opt = 'n';
+while (preg_match('/^[^a-z0-9]*([news])[^a-z0-9]*$/', $opt) > 0) {
+    $opt = readline('Where to go?[n]/[e]/[s]/[w]:  ');
 
-// $state = $currentRoom->getFoundDoors();
-// echo $currentRoom->getFoundDoors()['east']['is_found'] . "\n";
-// echo $state['west']['is_found'] . "\n";
-// echo $state['south']['is_found'] . "\n";
-// echo $state['east']['is_found'] . "\n";
-// echo $state['north']['is_found'] . "\n";
-// echo $currentRoom->east() . "\n";
+    switch (strtolower($opt)) {
+        case 'n':
+            // if ($room) {
+
+            // }
+            echo 'north'; break;
+        case 'e':
+            echo 'east'; break;
+        case 's':
+            echo 'south'; break;
+        case 'w':
+            echo 'west'; break;
+        default:
+            break;
+    }
+}
+
+
+// echo preg_match('/^[^a-z0-9]*([news])[^a-z0-9]*$/', $opt) . "\n";

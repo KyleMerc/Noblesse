@@ -35,16 +35,42 @@ abstract class RoomFactory
     {
         switch ($mainCharName) {
             case 'Frankenstein':
-                $rooms = [
-                    'firstRoom'     => new FrankFirstR(),
-                    'secondRoom'    => new FrankSecondR(),
-                    'thirdRoom'     => new FrankThirdR(),
-                    'fourthRoom'    => new FrankFourthR(),
+                $firstRoom  = new FrankFirstR();
+                $secondRoom = new FrankSecondR();
+                $thirdRoom  = new FrankThirdR();
+                $fourthRoom = new FrankFourthR();
+
+                $rooms['firstRoom'] = [
+                    'currentRoom' => $firstRoom,
+                    'north'       => $firstRoom->north(),
+                    'east'        => $firstRoom->east($secondRoom),
+                    'south'       => $firstRoom->south($thirdRoom),
+                    'west'        => $firstRoom->west($fourthRoom)
                 ];
 
-                // $rooms['firstRoom']->east($rooms['secondRoom']);
-                // $rooms['firstRoom']->south($rooms['fourthRoom']);
-                // $rooms['firstRoom']->west($rooms['thirdRoom']);
+                $rooms['secondRoom'] = [
+                    'currentRoom' => $secondRoom,
+                    'north'       => $secondRoom->north(),
+                    'east'        => $secondRoom->east(),
+                    'south'       => $secondRoom->south(),
+                    'west'        => $secondRoom->west($firstRoom)
+                ];
+
+                $rooms['thirdRoom'] = [
+                    'currentRoom' => $thirdRoom,
+                    'north'       => $thirdRoom->north(),
+                    'east'        => $thirdRoom->east($firstRoom),
+                    'south'       => $thirdRoom->south(),
+                    'west'        => $thirdRoom->west()
+                ];
+
+                $rooms['fourthRoom'] = [
+                    'currentRoom' => $fourthRoom,
+                    'north'       => $fourthRoom->north($firstRoom),
+                    'east'        => $fourthRoom->east(),
+                    'south'       => $fourthRoom->south(),
+                    'west'        => $fourthRoom->west()
+                ];
 
                 return $rooms;
                 
