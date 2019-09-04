@@ -15,6 +15,7 @@ class FirstRoom extends Map
             'Upper Main Floor',
             2,
             1,
+            'firstRoom',
             ['notFound'],
             ['found'],
             ['found'],

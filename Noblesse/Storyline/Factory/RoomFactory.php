@@ -31,20 +31,51 @@ use Noblesse\Storyline\CharacterMap\Han_Shinwoo\{
 
 abstract class RoomFactory
 {
+
+    /**
+     *
+     * @param string $mainCharName
+     * @return array
+     */
     public static function setCharacterRooms(string $mainCharName)
     {
         switch ($mainCharName) {
             case 'Frankenstein':
-                $rooms = [
-                    'firstRoom'     => new FrankFirstR(),
-                    'secondRoom'    => new FrankSecondR(),
-                    'thirdRoom'     => new FrankThirdR(),
-                    'fourthRoom'    => new FrankFourthR(),
-                ];
+                $rooms = [];
 
-                // $rooms['firstRoom']->east($rooms['secondRoom']);
-                // $rooms['firstRoom']->south($rooms['fourthRoom']);
-                // $rooms['firstRoom']->west($rooms['thirdRoom']);
+                $firstRoom  = new FrankFirstR();
+                $secondRoom = new FrankSecondR();
+                $thirdRoom  = new FrankThirdR();
+                $fourthRoom = new FrankFourthR();
+
+                $rooms['firstRoom'] = [
+                    'currentRoom' => $firstRoom,
+                    'north'       => NULL,
+                    'east'        => $secondRoom,
+                    'south'       => $thirdRoom,
+                    'west'        => $fourthRoom
+                ];
+                $rooms['secondRoom'] = [
+                    'currentRoom' => $secondRoom,
+                    'north'       => NULL,
+                    'east'        => NULL,
+                    'south'       => NULL,
+                    'west'        => $firstRoom
+                ];
+                $rooms['thirdRoom'] = [
+                    'currentRoom' => $thirdRoom,
+                    'north'       => NULL,
+                    'east'        => $firstRoom,
+                    'south'       => NULL,
+                    'west'        => NULL
+                ];
+                $rooms['fourthRoom'] = [
+                    'currentRoom' => $fourthRoom,
+                    'north'       => $firstRoom,
+                    'east'        => NULL,
+                    'south'       => NULL,
+                    'west'        => NULL
+                ];
 
                 return $rooms;
                 

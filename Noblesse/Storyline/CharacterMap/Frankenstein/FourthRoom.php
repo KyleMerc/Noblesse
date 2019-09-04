@@ -14,6 +14,7 @@ class FourthRoom extends Map
             'Balcony',
             2,
             2,
+            'fourthRoom',
             ['notFound'],
             ['found'],
             ['notFound'],

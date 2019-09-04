@@ -14,6 +14,7 @@ abstract class Map implements MapInterface
     private $westDoor;
     private $trapCount;
     private $itemCount;
+    private $roomOrder;
     
 
     /**
@@ -24,8 +25,9 @@ abstract class Map implements MapInterface
      */
     public function __construct(
         string $newRoomName,
-        int    $traps,
-        int    $items,
+        int    $newTraps,
+        int    $newItems,
+        string $newRoomOrder,
         array  $northDoor = [], 
         array  $eastDoor  = [], 
         array  $southDoor = [], 
@@ -37,13 +39,19 @@ abstract class Map implements MapInterface
         $this->eastDoor     = ['is_found' => $eastDoor[0]];
         $this->southDoor    = ['is_found' => $southDoor[0]];
         $this->westDoor     = ['is_found' => $westDoor[0]];
-        $this->trapCount    = $traps;
-        $this->itemCount    = $items;
+        $this->trapCount    = $newTraps;
+        $this->itemCount    = $newItems;
+        $this->roomOrder    = $newRoomOrder;
     }
 
     public function getRoomName()
     {
         return $this->roomName;
+    }
+
+    public function getRoomOrder()
+    {
+        return $this->roomOrder;
     }
 
     /**
@@ -82,41 +90,5 @@ abstract class Map implements MapInterface
     public function getItemCount()
     {
         return $this->itemCount;
-    }
-
-    public function north(Map $room = NULL)
-    {
-        // $doorFound = $this->getFoundDoors()['north']['is_found'];
-
-        // if ($doorFound === 'notFound' && $room === NULL) return NULL;
-
-        return $room;
-    }
-
-    public function east(Map $room = NULL)
-    {
-        // $doorFound = $this->getFoundDoors()['east']['is_found'];
-
-        // if ($doorFound === 'notFound' && $room === NULL) return NULL;
-
-        return $room;
-    }
-
-    public function south(Map $room = NULL)
-    {
-        // $doorFound = $this->getFoundDoors()['south']['is_found'];
-
-        // if ($doorFound == 'notFound' && $room === NULL) return NULL;
-
-        return $room;
-    }
-
-    public function west(Map $room = NULL)
-    {
-        // $doorFound = $this->getFoundDoors()['west']['is_found'];
-
-        // if ($doorFound == 'notFound' && $room === NULL) return NULL;
-
-        return $room;
     }
 }
