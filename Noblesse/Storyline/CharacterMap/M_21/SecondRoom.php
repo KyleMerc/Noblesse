@@ -14,6 +14,7 @@ class SecondRoom extends Map
             'Gallery',
             1,
             2,
+            'secondRoom',
             ['found'],
             ['notFound'],
             ['found'],

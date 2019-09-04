@@ -12,9 +12,10 @@ class FirstRoom extends Map
     public function __construct()
     {
         parent::__construct(
-            'Basement',
+            'Lower Main Hall',
             2,
             1,
+            'firstRoom',
             ['notFound'],
             ['found'],
             ['found'],

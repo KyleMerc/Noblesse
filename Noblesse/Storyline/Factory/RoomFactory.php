@@ -35,7 +35,7 @@ abstract class RoomFactory
     /**
      *
      * @param string $mainCharName
-     * @return array
+     * @return array 4 room objects
      */
     public static function setCharacterRooms(string $mainCharName)
     {
@@ -52,8 +52,8 @@ abstract class RoomFactory
                     'currentRoom' => $firstRoom,
                     'north'       => NULL,
                     'east'        => $secondRoom,
-                    'south'       => $thirdRoom,
-                    'west'        => $fourthRoom
+                    'south'       => $fourthRoom,
+                    'west'        => $thirdRoom
                 ];
                 $rooms['secondRoom'] = [
                     'currentRoom' => $secondRoom,
@@ -80,26 +80,121 @@ abstract class RoomFactory
                 return $rooms;
                 
             case 'M-21':
-                return [
-                    'firstRoom'     => new M21FirstR(),
-                    'secondRoom'    => new M21SecondR(),
-                    'thirdRoom'     => new M21ThirdR(),
-                    'fourthRoom'    => new M21FourthR(),
+                $rooms = [];
+
+                $firstRoom  = new M21FirstR();
+                $secondRoom = new M21SecondR();
+                $thirdRoom  = new M21ThirdR();
+                $fourthRoom = new M21FourthR();
+
+                $rooms['firstRoom'] = [
+                    'currentRoom' => $firstRoom,
+                    'north'       => NULL,
+                    'east'        => $secondRoom,
+                    'south'       => NULL,
+                    'west'        => NULL
                 ];
+                $rooms['secondRoom'] = [
+                    'currentRoom' => $secondRoom,
+                    'north'       => $fourthRoom,
+                    'east'        => NULL,
+                    'south'       => $thirdRoom,
+                    'west'        => $firstRoom
+                ];
+                $rooms['thirdRoom'] = [
+                    'currentRoom' => $thirdRoom,
+                    'north'       => $secondRoom,
+                    'east'        => NULL,
+                    'south'       => NULL,
+                    'west'        => NULL
+                ];
+                $rooms['fourthRoom'] = [
+                    'currentRoom' => $fourthRoom,
+                    'north'       => NULL,
+                    'east'        => NULL,
+                    'south'       => $secondRoom,
+                    'west'        => NULL
+                ];
+
+                return $rooms;
+
             case 'Muzaka':
-                return [
-                    'firstRoom'     => new MuzakaFirstR(),
-                    'secondRoom'    => new MuzakaSecondR(),
-                    'thirdRoom'     => new MuzakaThirdR(),
-                    'fourthRoom'    => new MuzakaFourthR(),
+                $rooms = [];
+
+                $firstRoom  = new MuzakaFirstR();
+                $secondRoom = new MuzakaSecondR();
+                $thirdRoom  = new MuzakaThirdR();
+                $fourthRoom = new MuzakaFourthR();
+
+                $rooms['firstRoom'] = [
+                    'currentRoom' => $firstRoom,
+                    'north'       => NULL,
+                    'east'        => $thirdRoom,
+                    'south'       => NULL,
+                    'west'        => $secondRoom
                 ];
+                $rooms['secondRoom'] = [
+                    'currentRoom' => $secondRoom,
+                    'north'       => NULL,
+                    'east'        => $firstRoom,
+                    'south'       => NULL,
+                    'west'        => NULL
+                ];
+                $rooms['thirdRoom'] = [
+                    'currentRoom' => $thirdRoom,
+                    'north'       => NULL,
+                    'east'        => NULL,
+                    'south'       => $fourthRoom,
+                    'west'        => $firstRoom
+                ];
+                $rooms['fourthRoom'] = [
+                    'currentRoom' => $fourthRoom,
+                    'north'       => $thirdRoom,
+                    'east'        => NULL,
+                    'south'       => NULL,
+                    'west'        => NULL
+                ];
+
+                return $rooms;
+                
             case 'Han Shinwoo':
-                return [
-                    'firstRoom'     => new HanFirstR(),
-                    'secondRoom'    => new HanSecondR(),
-                    'thirdRoom'     => new HanThirdR(),
-                    'fourthRoom'    => new HanFourthR(),
+                $rooms = [];
+
+                $firstRoom  = new HanFirstR();
+                $secondRoom = new HanSecondR();
+                $thirdRoom  = new HanThirdR();
+                $fourthRoom = new HanFourthR();
+
+                $rooms['firstRoom'] = [
+                    'currentRoom' => $firstRoom,
+                    'north'       => NULL,
+                    'east'        => $secondRoom,
+                    'south'       => $fourthRoom,
+                    'west'        => NULL
                 ];
+                $rooms['secondRoom'] = [
+                    'currentRoom' => $secondRoom,
+                    'north'       => NULL,
+                    'east'        => $thirdRoom,
+                    'south'       => NULL,
+                    'west'        => $firstRoom
+                ];
+                $rooms['thirdRoom'] = [
+                    'currentRoom' => $thirdRoom,
+                    'north'       => NULL,
+                    'east'        => NULL,
+                    'south'       => NULL,
+                    'west'        => $secondRoom
+                ];
+                $rooms['fourthRoom'] = [
+                    'currentRoom' => $fourthRoom,
+                    'north'       => $firstRoom,
+                    'east'        => NULL,
+                    'south'       => NULL,
+                    'west'        => NULL
+                ];
+            
+                return $rooms;
         }
     }
 }

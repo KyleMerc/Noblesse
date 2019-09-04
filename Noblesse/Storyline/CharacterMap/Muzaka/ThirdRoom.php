@@ -14,6 +14,7 @@ class ThirdRoom extends Map
             'Great Hall',
             3,
             1,
+            'thirdRoom',
             ['notFound'],
             ['notFound'],
             ['found'],

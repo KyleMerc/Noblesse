@@ -14,6 +14,7 @@ class SecondRoom extends Map
             'Kitchen',
             1,
             2,
+            'secondRoom',
             ['notFound'],
             ['found'],
             ['notFound'],

@@ -45,61 +45,61 @@ class RoomExploration
     }
 }
 
-$roomSetup      = new RoomExploration('Frankenstein');
+$roomSetup      = new RoomExploration('Han Shinwoo');
 
 $room           = $roomSetup->getRooms();
 $roomNumber     = array_keys($room);
-$regexDirection = '/^[^a-z0-9]*([news])[^a-z0-9]*$/';
-$currentRoom;
+$regexDirection = '/^[^a-z0-9]*([newsq])[^a-z0-9]*$/';
 $nextRoom;
 
-while (true) {
-    // Starting room
-    $currentRoom = $room['firstRoom']['currentRoom'];
 
-    $opt = readline("Where to go?\n[n]/[e]/[s]/[w]: ");
+// Starting room
+$currentRoom = $room['firstRoom']['currentRoom'];
+
+while (true) {
+    echo "Current Room: " . $currentRoom->getRoomName() . "\n\n";
+
+    $opt = readline("Where to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
 
     if (preg_match($regexDirection, $opt) == 0) {
         echo "Invalid command...\n";
-        break;
     }
 
-    $numberOfDoors;
-    foreach ($currentRoom->getFoundDoors() as $key => $foundDoor)
-    {
-        if ($foundDoor['is_found'] == 'found') {
-            $numberOfDoors++;
-        }
-    }
-
-    echo $currentRoom->getRoomName() . "\n$numberOfDoors door/s found\n";
-
-    // switch (true) {
-    //     case 
+    // foreach ($currentRoom->getFoundDoors() as $key => $foundDoor)
+    // {
+    //     if ($foundDoor['is_found'] == 'found') {
+    //         $numberOfDoors++;
+    //     }
     // }
+
+    
+    // . "\n$numberOfDoors door/s found\n\n";
+    if (strtolower($opt) === 'q') break;
 
     switch (strtolower($opt)) {
         case 'n':
-            $nextRoom = $room[$roomNumber[0]]['north'];
+            $nextRoom = $room[$currentRoom->getRoomOrder()]['north'];
             break;
         case 'e':
-            $nextRoom = $room[$roomNumber[0]]['east'];
+            $nextRoom = $room[$currentRoom->getRoomOrder()]['east'];
             break;
         case 's':
-            $nextRoom = $room[$roomNumber[0]]['south'];
+            $nextRoom = $room[$currentRoom->getRoomOrder()]['south'];
             break;
         case 'w':
-            $nextRoom = $room[$roomNumber[0]]['west'];
+            $nextRoom = $room[$currentRoom->getRoomOrder()]['west'];
             break;
     }
 
     if ($nextRoom == NULL) {
-        echo "No room found\n";
-        break;
+        echo "\nNo room found\n\n";
     }
 
-    echo $nextRoom->getRoomName() . "\n";
+    if ($nextRoom != NULL) {
+        echo 'Next room: ' . $nextRoom->getRoomName() . "\n";
+        $currentRoom = $nextRoom;
+    }    
 }
 
-// $currentRoom = $room['secondRoom']['west'];
-// echo $currentRoom->getRoomName() . "\n";
+// $currentRoom = $room['secondRoom']['currentRoom'];
+// echo $currentRoom->getRoomOrder() . "\n";
