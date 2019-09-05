@@ -15,10 +15,7 @@ class SecondRoom extends Map
             1,
             2,
             'secondRoom',
-            ['notFound'],
-            ['notFound'],
-            ['notFound'],
-            ['found']
+            false
         );
     }
 }

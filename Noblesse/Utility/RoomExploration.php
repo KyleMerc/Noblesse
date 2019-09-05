@@ -24,85 +24,86 @@ class RoomExploration
        $this->rooms = RoomFactory::setCharacterRooms($mainCharName);
     }
 
-    /**
-     * Set the current room
-     *
-     * @param \Noblesse\Storyline\Map $room
-     */
-    public function goToRoom(Map $room)
+    private function setupRooms()
     {
-       $this->currentRoom = $room;
+        $currentRoom = $this->rooms;
+        $this->currentRoom = $currentRoom['firstRoom']['currentRoom'];
+        
+        return $this->rooms;
     }
 
-    public function currentRoom()
+    public function roomStart()
+    {
+        $nextRoom           = NULL;
+        $room               = $this->setupRooms();
+        $regexDirection     = '/^[^a-z0-9]*([newsq])[^a-z0-9]*$/';
+
+        while (true) {
+            echo "Current Room: " . $this->currentRoom->getRoomName() . "\n";
+            
+            $availableRooms = '';
+
+            if ($room[$this->currentRoom->getRoomOrder()]['north']) {
+                $roomName = $room[$this->currentRoom->getRoomOrder()]['north']->getRoomName();
+                $availableRooms  .= 'North: ' . $roomName . "\n";
+            }
+                
+            if ($room[$this->currentRoom->getRoomOrder()]['east']) {
+                $roomName = $room[$this->currentRoom->getRoomOrder()]['east']->getRoomName();
+                $availableRooms  .= 'East: '  . $roomName  . "\n";
+            }
+                
+            if ($room[$this->currentRoom->getRoomOrder()]['south']) {
+                $roomName = $room[$this->currentRoom->getRoomOrder()]['south']->getRoomName();
+                $availableRooms  .= 'South: ' . $roomName . "\n";
+            }
+                
+            if ($room[$this->currentRoom->getRoomOrder()]['west']) {
+                $roomName = $room[$this->currentRoom->getRoomOrder()]['west']->getRoomName();
+                $availableRooms  .= 'West: '  . $roomName  . "\n";
+            }
+            echo $availableRooms;
+
+            $opt = readline("\nWhere to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
+
+            if (preg_match($regexDirection, $opt) == 0) {
+                echo "\nInvalid command...\n\n";
+            }
+            
+            if ($opt === 'q') break;
+
+            switch (strtolower($opt)) {
+                case 'n':
+                    $nextRoom = $room[$this->currentRoom->getRoomOrder()]['north'];
+                    break;
+                case 'e':
+                    $nextRoom = $room[$this->currentRoom->getRoomOrder()]['east'];
+                    break;
+                case 's':
+                    $nextRoom = $room[$this->currentRoom->getRoomOrder()]['south'];
+                    break;
+                case 'w':
+                    $nextRoom = $room[$this->currentRoom->getRoomOrder()]['west'];
+                    break;
+            }
+
+
+            if ($nextRoom === NULL) {
+                echo "Room not found\n";
+            }
+
+            if ($nextRoom !== NULL && $nextRoom->isDoorLocked() === false) $this->currentRoom = $nextRoom;
+            else echo "Door is locked\n\n";
+        }
+
+    }
+
+    public function getCurrentRoom()
     {
         return $this->currentRoom;
     }
-
-    public function getRooms()
-    {
-        return $this->rooms;
-    }
 }
-
-//I have to rearrange this for tomorrow
-//You can change the map by changing the character name: M-21, Han Shinwoo, Muzaka, Frankenstein
-$roomSetup      = new RoomExploration('Han Shinwoo');
-
-$room           = $roomSetup->getRooms();
-$roomNumber     = array_keys($room);
-$regexDirection = '/^[^a-z0-9]*([newsq])[^a-z0-9]*$/';
-$nextRoom;
-
-
-// Starting room
-$currentRoom = $room['firstRoom']['currentRoom'];
-
-while (true) {
-    echo "Current Room: " . $currentRoom->getRoomName() . "\n\n";
-    
-    $availableRooms = '';
-    
-    if ($room[$currentRoom->getRoomOrder()]['north']) 
-        $availableRooms  .= 'North: ' . $room[$currentRoom->getRoomOrder()]['north']->getRoomName() . "\n";
-    if ($room[$currentRoom->getRoomOrder()]['east'])  
-        $availableRooms  .= 'East: '  . $room[$currentRoom->getRoomOrder()]['east']->getRoomName()  . "\n";
-    if ($room[$currentRoom->getRoomOrder()]['south']) 
-        $availableRooms  .= 'South: ' . $room[$currentRoom->getRoomOrder()]['south']->getRoomName() . "\n";
-    if ($room[$currentRoom->getRoomOrder()]['west'])  
-        $availableRooms  .= 'West: '  . $room[$currentRoom->getRoomOrder()]['west']->getRoomName()  . "\n";
-
-    echo $availableRooms;
-    
-
-    $opt = readline("\nWhere to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
-
-    if (strtolower($opt) === 'q') break;
-
-    switch (strtolower($opt)) {
-        case 'n':
-            $nextRoom = $room[$currentRoom->getRoomOrder()]['north'];
-            break;
-        case 'e':
-            $nextRoom = $room[$currentRoom->getRoomOrder()]['east'];
-            break;
-        case 's':
-            $nextRoom = $room[$currentRoom->getRoomOrder()]['south'];
-            break;
-        case 'w':
-            $nextRoom = $room[$currentRoom->getRoomOrder()]['west'];
-            break;
-    }
-
-    if ($nextRoom == NULL) {
-        echo "\nNo room found\n\n";
-    }
-
-    if ($nextRoom != NULL) {
-        $currentRoom = $nextRoom;
-    }
-
-    if (preg_match($regexDirection, $opt) == 0) {
-        echo "Invalid command...\n";
-    }
-}
+$room = new RoomExploration('Frankenstein');
+$room->roomStart();
+$currentRoom = $room->getCurrentRoom();
+echo "\n\n" . $currentRoom->getRoomName() . "\n\n";

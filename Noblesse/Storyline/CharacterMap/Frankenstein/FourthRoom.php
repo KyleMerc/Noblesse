@@ -15,10 +15,7 @@ class FourthRoom extends Map
             2,
             2,
             'fourthRoom',
-            ['notFound'],
-            ['found'],
-            ['notFound'],
-            ['notFound']
+            true
         );
     }
 }

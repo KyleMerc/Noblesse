@@ -15,11 +15,13 @@ abstract class Map implements MapInterface
     private $trapCount;
     private $itemCount;
     private $roomOrder;
+    private $isLocked;
     
 
     /**
      * @param string $newRoomName
-     * @param array  $northDoor, $eastDoor, $southDoor, $westDoor 
+     * @param array  $northDoor, $eastDoor, $southDoor, $westDoor
+     * @param bool   $isLocked
      * @param int    $traps
      * @param int    $items
      */
@@ -28,17 +30,11 @@ abstract class Map implements MapInterface
         int    $newTraps,
         int    $newItems,
         string $newRoomOrder,
-        array  $northDoor = [], 
-        array  $eastDoor  = [], 
-        array  $southDoor = [], 
-        array  $westDoor  = [] 
+        bool   $isLocked
         ) {
 
         $this->roomName     = $newRoomName;
-        $this->northDoor    = ['is_found' => $northDoor[0]];
-        $this->eastDoor     = ['is_found' => $eastDoor[0]];
-        $this->southDoor    = ['is_found' => $southDoor[0]];
-        $this->westDoor     = ['is_found' => $westDoor[0]];
+        $this->isLocked     = $isLocked;
         $this->trapCount    = $newTraps;
         $this->itemCount    = $newItems;
         $this->roomOrder    = $newRoomOrder;
@@ -80,6 +76,11 @@ abstract class Map implements MapInterface
             case 'west':
                 $this->westDoor[1]  = $key;
         }
+    }
+
+    public function isDoorLocked()
+    {
+        return $this->isLocked;
     }
 
     public function getTrapCount()

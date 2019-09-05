@@ -52,8 +52,8 @@ abstract class RoomFactory
                     'currentRoom' => $firstRoom,
                     'north'       => NULL,
                     'east'        => $secondRoom,
-                    'south'       => $fourthRoom,
-                    'west'        => $thirdRoom
+                    'south'       => $thirdRoom,
+                    'west'        => $fourthRoom
                 ];
                 $rooms['secondRoom'] = [
                     'currentRoom' => $secondRoom,
