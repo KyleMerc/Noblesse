@@ -24,36 +24,19 @@ class Character implements CharacterInterface
      * @param string $newName       Name for the character
      * @param string $newCharType   Type of character
      * @param string $newWeaponType Fixed and cannot be changed
-     * @param int    $newMinDamage  Minimum damage of weapon
-     * @param int    $newMaxDamage  Maximum damage of weapon
      * 
      * @var   int    $health        Default 100 
      */
-    // public function __construct(
-    //     string $newName, 
-    //     string $newCharType,
-    //     string $newWeaponType,
-    //     int    $newMinDamage,
-    //     int    $newMaxDamage) {
-
-    //     $this->name         = $newName;
-    //     $this->charType     = $newCharType;
-    //     $this->weaponType   = $newWeaponType;
-    //     $this->health       = BASE_HEALTH;
-    //     $this->minDamage    = $newMinDamage;
-    //     $this->maxDamage    = $newMaxDamage;
-    // }
-
-
-    // //Character setting creation
-    // public function createFrankentein()
-    // {
-    //     $this->setName('Frankenstein');
-    //     $this->setDamage(30, 50);
-    //     $this->setModHumanType(true, 'Super');
-        
-    // }
-    // //-------------------------
+    public function __construct(
+        string $newName,
+        string $newCharType,
+        string $newWeaponType
+    ) {
+        $this->name         = $newName;
+        $this->charType     = $newCharType;
+        $this->weaponType   = $newWeaponType;
+        $this->health       = BASE_HEALTH;
+    }
 
     public function setName(string $newName)
     {

@@ -6,8 +6,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
 use Noblesse\Character\Character;
 
-use const Noblesse\Character\Helpers\BASE_HEALTH;
-
 class NewCharacterFactory
 {
     public static function makeCharacter(string $character): Character
@@ -30,12 +28,8 @@ class NewCharacterFactory
      */
     public static function SuperModifiedHuman(string $newName = 'Frankenstein')
     {
-        $character = new Character();
+        $character = new Character($newName, 'Modified Human', 'Dark Spear');
 
-        $character->setName($newName);
-        $character->setHealth(BASE_HEALTH);
-        $character->setCharType('Modified Human');
-        $character->setWeaponType('Dark Spear');
         $character->setDamage(30, 50);
         $character->setModHumanType(true, 'Super');
         
@@ -44,12 +38,8 @@ class NewCharacterFactory
 
     public static function SimpleModifiedHuman(string $newName = 'M-21')
     {
-        $character = new Character();
+        $character = new Character($newName, 'Modified Human', 'Gun');
 
-        $character->setName($newName);
-        $character->setHealth(BASE_HEALTH);
-        $character->setCharType('Modified Human');
-        $character->setWeaponType('Gun');
         $character->setDamage(25, 30);
         $character->setModHumanType(true, 'Simple');
         
@@ -58,12 +48,8 @@ class NewCharacterFactory
 
     public static function Human(string $newName = 'Han Shinwoo')
     {
-        $character = new Character();
+        $character = new Character($newName, 'Human', 'Karate');
 
-        $character->setName($newName);
-        $character->setHealth(BASE_HEALTH);
-        $character->setCharType('Human');
-        $character->setWeaponType('Karate');
         $character->setDamage(40, 45);
         $character->setModHumanType();
         
@@ -72,12 +58,8 @@ class NewCharacterFactory
 
     public static function Werewolf(string $newName = 'Muzaka')
     {
-        $character = new Character();
+        $character = new Character($newName, 'Werewolf', 'Strong Punch');
 
-        $character->setName($newName);
-        $character->setHealth(BASE_HEALTH);
-        $character->setCharType('Werewolf');
-        $character->setWeaponType('Strong Punch');
         $character->setDamage(25, 45);
         $character->setModHumanType();
         
@@ -86,12 +68,8 @@ class NewCharacterFactory
 
     public static function Vampire(string $newName = 'Nameless')
     {
-        $character = new Character();
+        $character = new Character($newName, 'Vampire', 'Claws');
 
-        $character->setName($newName);
-        $character->setHealth(rand(40, 45));
-        $character->setCharType('Human');
-        $character->setWeaponType('Karate');
         $character->setDamage(1, 10);
         $character->setModHumanType();
         
