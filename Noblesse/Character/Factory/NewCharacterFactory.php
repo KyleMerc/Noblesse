@@ -10,35 +10,23 @@ use const Noblesse\Character\Helpers\BASE_HEALTH;
 
 class NewCharacterFactory
 {
-    public static function makeMainCharacter(string $character)
+    public static function makeCharacter(string $character): Character
     {
         switch ($character) {
-            case 'f'    : return self::SuperModifiedHuman();
-            case 'm2'   : return self::SimpleModifiedHuman();
-            case 'm'    : return self::Werewolf();
-            case 'h'    : return self::Human();
-            default     : return NULL;
+            case 'SuperModifiedHuman'    : return self::SuperModifiedHuman();
+            case 'SimpleModifiedHuman'   : return self::SimpleModifiedHuman();
+            case 'Werewolf'              : return self::Werewolf();
+            case 'Human'                 : return self::Human();
+            case 'Vampire'               : return self::Vampire();
+            default                      : return NULL;
         }
-    }
-
-    public static function makeEnemyCharacter(string $character)
-    {
-        switch ($character) {
-            case 'v'    : return self::Vampire();
-            default     : return NULL;
-        }
-    }
-
-    public static function status(Character $character)
-    {   
-        echo $character->getName() . "\n" . $character->getWeaponType() . "  " . $character->getDamage() . "\n";
     }
 
     /**
      * Default creation are Main characters
      *
      * @param string $newName
-     * @return void
+     * @return Character
      */
     public static function SuperModifiedHuman(string $newName = 'Frankenstein')
     {
@@ -101,7 +89,7 @@ class NewCharacterFactory
         $character = new Character();
 
         $character->setName($newName);
-        $character->setHealth(BASE_HEALTH);
+        $character->setHealth(rand(40, 45));
         $character->setCharType('Human');
         $character->setWeaponType('Karate');
         $character->setDamage(1, 10);
