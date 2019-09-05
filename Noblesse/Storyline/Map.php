@@ -4,8 +4,9 @@ namespace Noblesse\Storyline;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
+use Noblesse\Storyline\Interfaces\DirectionInterface;
 use Noblesse\Storyline\Interfaces\MapInterface;
-abstract class Map implements MapInterface
+abstract class Map implements MapInterface, DirectionInterface
 {
     private $roomName;
     private $northDoor;
