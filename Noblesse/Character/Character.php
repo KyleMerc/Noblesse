@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/Helpers/CharHelpers
 use Noblesse\Character\Interfaces\CharacterInterface;
 
 use const Noblesse\Character\Helpers\BASE_HEALTH;
-abstract class Character implements CharacterInterface
+class Character implements CharacterInterface
 {
     private $name;
     private $charType;
@@ -17,6 +17,7 @@ abstract class Character implements CharacterInterface
     private $damage;
     private $minDamage;
     private $maxDamage;
+    private $modHumanType;
     
     /**
      * Characteristics are defined
@@ -28,20 +29,31 @@ abstract class Character implements CharacterInterface
      * 
      * @var   int    $health        Default 100 
      */
-    public function __construct(
-        string $newName, 
-        string $newCharType,
-        string $newWeaponType,
-        int    $newMinDamage,
-        int    $newMaxDamage) {
+    // public function __construct(
+    //     string $newName, 
+    //     string $newCharType,
+    //     string $newWeaponType,
+    //     int    $newMinDamage,
+    //     int    $newMaxDamage) {
 
-        $this->name         = $newName;
-        $this->charType     = $newCharType;
-        $this->weaponType   = $newWeaponType;
-        $this->health       = BASE_HEALTH;
-        $this->minDamage    = $newMinDamage;
-        $this->maxDamage    = $newMaxDamage;
-    }
+    //     $this->name         = $newName;
+    //     $this->charType     = $newCharType;
+    //     $this->weaponType   = $newWeaponType;
+    //     $this->health       = BASE_HEALTH;
+    //     $this->minDamage    = $newMinDamage;
+    //     $this->maxDamage    = $newMaxDamage;
+    // }
+
+
+    // //Character setting creation
+    // public function createFrankentein()
+    // {
+    //     $this->setName('Frankenstein');
+    //     $this->setDamage(30, 50);
+    //     $this->setModHumanType(true, 'Super');
+        
+    // }
+    // //-------------------------
 
     public function setName(string $newName)
     {
@@ -53,6 +65,23 @@ abstract class Character implements CharacterInterface
         return $this->name;
     }
 
+    public function setModHumanType(bool $isModHuman = false, string $type = '')
+    {
+        if (! $isModHuman) $this->modHumanType = NULL;
+
+        $this->modHumanType = $type; 
+    }
+
+    public function getModHumanType()
+    {
+        return $this->modHumanType;
+    }
+
+    public function setDamage(int $min, int $max)
+    {
+        $this->minDamage = $min;
+        $this->maxDamage = $max;
+    }
     /**
      * @return int Random int
      */
@@ -72,14 +101,29 @@ abstract class Character implements CharacterInterface
         ];
     }
 
+    public function setCharType(string $newCharType)
+    {
+        $this->charType = $newCharType;
+    }
+
     public function getCharType()
     {
         return $this->charType;
     }
 
+    public function setWeaponType(string $newWeaponType)
+    {
+        $this->weaponType = $newWeaponType;
+    }
+
     public function getWeaponType()
     {
         return $this->weaponType;
+    }
+
+    public function setHealth(int $newHealth)
+    {
+        $this->health = $newHealth;
     }
 
     public function getHealth()
@@ -94,7 +138,7 @@ abstract class Character implements CharacterInterface
      * @param integer $dmgTaken
      * @return void
      */
-    public function setHealth(int $dmgTaken)
+    public function damageHealth(int $dmgTaken)
     {
         $this->health = $this->getHealth() - $dmgTaken;
 
@@ -111,7 +155,7 @@ abstract class Character implements CharacterInterface
     {
         $damage = $this->getDamage();
 
-        $character->setHealth($damage);
+        $character->damageHealth($damage);
 
         return "\t    " . $this->getName() . " deals ". $damage . " damage\n";
     }
