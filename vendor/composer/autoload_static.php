@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
 {
+    public static $files = array (
+        '62e494c0fc9a7f12af81b47db9ff0916' => __DIR__ . '/../..' . '/Noblesse/Character/Helpers/CharHelpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'N' => 
         array (
@@ -22,14 +26,10 @@ class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
 
     public static $classMap = array (
         'Noblesse\\Character\\Character' => __DIR__ . '/../..' . '/Noblesse/Character/Character.php',
-        'Noblesse\\Character\\CharacterFactory' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterFactory.php',
-        'Noblesse\\Character\\CharacterInterface' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterInterface.php',
-        'Noblesse\\Character\\Human' => __DIR__ . '/../..' . '/Noblesse/Character/Human.php',
-        'Noblesse\\Character\\ModifiedHumanInterface' => __DIR__ . '/../..' . '/Noblesse/Character/ModifiedHumanInterface.php',
-        'Noblesse\\Character\\SimpleModifiedHuman' => __DIR__ . '/../..' . '/Noblesse/Character/SimpleModifiedHuman.php',
-        'Noblesse\\Character\\SuperModifiedHuman' => __DIR__ . '/../..' . '/Noblesse/Character/SuperModifiedHuman.php',
-        'Noblesse\\Character\\Vampire' => __DIR__ . '/../..' . '/Noblesse/Character/Vampire.php',
-        'Noblesse\\Character\\Werewolf' => __DIR__ . '/../..' . '/Noblesse/Character/Werewolf.php',
+        'Noblesse\\Character\\Factory\\NewCharacterFactory' => __DIR__ . '/../..' . '/Noblesse/Character/Factory/NewCharacterFactory.php',
+        'Noblesse\\Character\\Interfaces\\CharacterInterface' => __DIR__ . '/../..' . '/Noblesse/Character/Interfaces/CharacterInterface.php',
+        'Noblesse\\Utility\\MainUtil' => __DIR__ . '/../..' . '/Noblesse/Utility/MainUtil.php',
+        'Noblesse\\Utility\\Status' => __DIR__ . '/../..' . '/Noblesse/Utility/Status.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

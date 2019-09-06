@@ -70,6 +70,7 @@ abstract class NewCharacterFactory
     {
         $character = new Character($newName, 'Vampire', 'Claws');
 
+        $character->setHealth(rand(50, 60));
         $character->setDamage(1, 10);
         $character->setModHumanType();
         

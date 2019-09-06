@@ -3,7 +3,6 @@
 namespace Noblesse\Character;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/Character/Helpers/CharHelpers.php";
 
 use Noblesse\Character\Interfaces\CharacterInterface;
 
