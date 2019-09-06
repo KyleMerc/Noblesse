@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
 use Noblesse\Character\Character;
 
-class NewCharacterFactory
+abstract class NewCharacterFactory
 {
     public static function makeCharacter(string $character): Character
     {
