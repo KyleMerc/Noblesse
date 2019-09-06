@@ -9,10 +9,10 @@ use Noblesse\Storyline\Interfaces\MapInterface;
 abstract class Map implements MapInterface, DirectionInterface
 {
     private $roomName;
-    private $northDoor;
-    private $eastDoor;
-    private $southDoor;
-    private $westDoor;
+    private $north;
+    private $east;
+    private $south;
+    private $west;
     private $trapCount;
     private $itemCount;
     private $roomOrder;
@@ -51,20 +51,6 @@ abstract class Map implements MapInterface, DirectionInterface
         return $this->roomOrder;
     }
 
-    /**
-     *
-     * @return array[][] Array key ['is_found'] value found / notFound
-     */
-    public function getFoundDoors()
-    {
-        return [
-            'north' => $this->northDoor,
-            'east'  => $this->eastDoor,
-            'south' => $this->southDoor,
-            'west'  => $this->westDoor
-        ];
-    }
-
     public function openDoor(bool $key, string $door)
     {
         switch ($door) {
@@ -92,5 +78,46 @@ abstract class Map implements MapInterface, DirectionInterface
     public function getItemCount()
     {
         return $this->itemCount;
+    }
+
+    /**
+     * Set the connectecd rooms for each Main character
+     *
+     * @param Direction $newNorth
+     * @param Direction $newEast
+     * @param Direction $newSouth
+     * @param Direction $newWest
+     * @return void
+     */
+    public function setDirection(
+        DirectionInterface $newNorth = NULL, 
+        DirectionInterface $newEast  = NULL, 
+        DirectionInterface $newSouth = NULL, 
+        DirectionInterface $newWest  = NULL
+    ) {
+        $this->north = $newNorth;
+        $this->east = $newEast;
+        $this->south = $newSouth;
+        $this->west = $newWest;
+    }
+
+    public function north()
+    {
+        return $this->north;
+    }
+
+    public function east()
+    {
+        return $this->east;
+    }
+
+    public function south()
+    {
+        return $this->south;
+    }
+
+    public function west()
+    {
+        return $this->west;
     }
 }

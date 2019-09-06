@@ -9,7 +9,6 @@ use Noblesse\Storyline\Map;
 interface MapInterface
 {
     public function getRoomName();
-    public function getFoundDoors();
     public function openDoor(bool $key, string $door);
     public function getTrapCount();
     public function getItemCount();
