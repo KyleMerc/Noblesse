@@ -15,10 +15,8 @@ class FirstRoom extends Map
             'Upper Main Floor',
             2,
             1,
-            ['notFound'],
-            ['found'],
-            ['found'],
-            ['found']
+            'firstRoom',
+            false
         );
     }
 }

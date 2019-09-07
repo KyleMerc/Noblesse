@@ -15,10 +15,8 @@ class FirstRoom extends Map
             'Basement',
             2,
             1,
-            ['notFound'],
-            ['found'],
-            ['notFound'],
-            ['found']
+            'firstRoom',
+            false
         );
     }
 }

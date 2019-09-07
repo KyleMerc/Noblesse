@@ -14,10 +14,8 @@ class SecondRoom extends Map
             'Kitchen',
             1,
             2,
-            ['notFound'],
-            ['notFound'],
-            ['notFound'],
-            ['found']
+            'secondRoom',
+            false
         );
     }
 }

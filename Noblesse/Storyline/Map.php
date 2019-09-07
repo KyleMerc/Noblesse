@@ -4,43 +4,41 @@ namespace Noblesse\Storyline;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
+use Noblesse\Storyline\Interfaces\DirectionInterface;
 use Noblesse\Storyline\Interfaces\MapInterface;
-abstract class Map implements MapInterface
+abstract class Map implements MapInterface, DirectionInterface
 {
     private $roomName;
-    private $northDoor;
-    private $eastDoor;
-    private $southDoor;
-    private $westDoor;
+    private $north;
+    private $east;
+    private $south;
+    private $west;
     private $trapCount;
     private $itemCount;
-
-    private $room;
+    private $roomOrder;
+    private $isLocked;
     
 
     /**
      * @param string $newRoomName
-     * @param array  $northDoor, $eastDoor, $southDoor, $westDoor 
+     * @param array  $northDoor, $eastDoor, $southDoor, $westDoor
+     * @param bool   $isLocked
      * @param int    $traps
      * @param int    $items
      */
     public function __construct(
         string $newRoomName,
-        int    $traps,
-        int    $items,
-        array  $northDoor = [], 
-        array  $eastDoor  = [], 
-        array  $southDoor = [], 
-        array  $westDoor  = [] 
+        int    $newTraps,
+        int    $newItems,
+        string $newRoomOrder,
+        bool   $isLocked
         ) {
 
         $this->roomName     = $newRoomName;
-        $this->northDoor    = ['is_found' => $northDoor[0]];
-        $this->eastDoor     = ['is_found' => $eastDoor[0]];
-        $this->southDoor    = ['is_found' => $southDoor[0]];
-        $this->westDoor     = ['is_found' => $westDoor[0]];
-        $this->trapCount    = $traps;
-        $this->itemCount    = $items;
+        $this->isLocked     = $isLocked;
+        $this->trapCount    = $newTraps;
+        $this->itemCount    = $newItems;
+        $this->roomOrder    = $newRoomOrder;
     }
 
     public function getRoomName()
@@ -48,18 +46,9 @@ abstract class Map implements MapInterface
         return $this->roomName;
     }
 
-    /**
-     *
-     * @return array[][] Array key ['is_found'] value found / notFound
-     */
-    public function getFoundDoors()
+    public function getRoomOrder()
     {
-        return [
-            'north' => $this->northDoor,
-            'east'  => $this->eastDoor,
-            'south' => $this->southDoor,
-            'west'  => $this->westDoor
-        ];
+        return $this->roomOrder;
     }
 
     public function openDoor(bool $key, string $door)
@@ -76,6 +65,11 @@ abstract class Map implements MapInterface
         }
     }
 
+    public function isDoorLocked()
+    {
+        return $this->isLocked;
+    }
+
     public function getTrapCount()
     {
         return $this->trapCount;
@@ -86,39 +80,44 @@ abstract class Map implements MapInterface
         return $this->itemCount;
     }
 
-    public function north(Map $room = NULL)
-    {
-        // $doorFound = $this->getFoundDoors()['north']['is_found'];
-
-        // if ($doorFound === 'notFound' && $room === NULL) return NULL;
-
-        return $room;
+    /**
+     * Set the connectecd rooms for each Main character
+     *
+     * @param Direction $newNorth
+     * @param Direction $newEast
+     * @param Direction $newSouth
+     * @param Direction $newWest
+     * @return void
+     */
+    public function setDirection(
+        DirectionInterface $newNorth = NULL, 
+        DirectionInterface $newEast  = NULL, 
+        DirectionInterface $newSouth = NULL, 
+        DirectionInterface $newWest  = NULL
+    ) {
+        $this->north = $newNorth;
+        $this->east = $newEast;
+        $this->south = $newSouth;
+        $this->west = $newWest;
     }
 
-    public function east(Map $room = NULL)
+    public function north()
     {
-        // $doorFound = $this->getFoundDoors()['east']['is_found'];
-
-        // if ($doorFound === 'notFound' && $room === NULL) return NULL;
-
-        return $room;
+        return $this->north;
     }
 
-    public function south(Map $room = NULL)
+    public function east()
     {
-        // $doorFound = $this->getFoundDoors()['south']['is_found'];
-
-        // if ($doorFound == 'notFound' && $room === NULL) return NULL;
-
-        return $room;
+        return $this->east;
     }
 
-    public function west(Map $room = NULL)
+    public function south()
     {
-        // $doorFound = $this->getFoundDoors()['west']['is_found'];
+        return $this->south;
+    }
 
-        // if ($doorFound == 'notFound' && $room === NULL) return NULL;
-
-        return $room;
+    public function west()
+    {
+        return $this->west;
     }
 }

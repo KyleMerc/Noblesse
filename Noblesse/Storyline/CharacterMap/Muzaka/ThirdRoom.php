@@ -14,10 +14,8 @@ class ThirdRoom extends Map
             'Great Hall',
             3,
             1,
-            ['notFound'],
-            ['notFound'],
-            ['found'],
-            ['found']
+            'thirdRoom',
+            true
         );
     }
 }

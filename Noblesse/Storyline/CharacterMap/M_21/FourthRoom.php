@@ -14,10 +14,8 @@ class FourthRoom extends Map
             'Drawing Room',
             2,
             2,
-            ['notFound'],
-            ['notFound'],
-            ['Found'],
-            ['notFound']
+            'fourthRoom',
+            true
         );
     }
 }

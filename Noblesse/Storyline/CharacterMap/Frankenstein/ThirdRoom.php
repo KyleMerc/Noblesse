@@ -14,10 +14,8 @@ class ThirdRoom extends Map
             'Bedroom',
             3,
             1,
-            ['found'],
-            ['notFound'],
-            ['notFound'],
-            ['notFound']
+            'thirdRoom',
+            false
         );
     }
 }

@@ -15,10 +15,8 @@ class FirstRoom extends Map
             'Entrance Hall',
             2,
             1,
-            ['notFound'],
-            ['found'],
-            ['notFound'],
-            ['notFound']
+            'firstRoom',
+            false
         );
     }
 }

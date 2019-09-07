@@ -110,4 +110,9 @@ abstract class MainUtil
             } else echo "\t    Invalid command\n";
         }
     }
+
+    public static function mainMenu()
+    {
+        $menu = "";
+    }
 }

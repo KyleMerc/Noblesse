@@ -14,10 +14,8 @@ class FourthRoom extends Map
             'Vault',
             2,
             2,
-            ['Found'],
-            ['notFound'],
-            ['notFound'],
-            ['notFound']
+            'fourthRoom',
+            true
         );
     }
 }
