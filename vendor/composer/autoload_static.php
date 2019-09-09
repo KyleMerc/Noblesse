@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
 {
+    public static $files = array (
+        '62e494c0fc9a7f12af81b47db9ff0916' => __DIR__ . '/../..' . '/Noblesse/Character/Helpers/CharHelpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'N' => 
         array (
@@ -22,27 +26,9 @@ class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
 
     public static $classMap = array (
         'Noblesse\\Character\\Character' => __DIR__ . '/../..' . '/Noblesse/Character/Character.php',
-        'Noblesse\\Character\\CharacterType\\Human' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterType/Human.php',
-        'Noblesse\\Character\\CharacterType\\SimpleModifiedHuman' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterType/SimpleModifiedHuman.php',
-        'Noblesse\\Character\\CharacterType\\SuperModifiedHuman' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterType/SuperModifiedHuman.php',
-        'Noblesse\\Character\\CharacterType\\Vampire' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterType/Vampire.php',
-        'Noblesse\\Character\\CharacterType\\Werewolf' => __DIR__ . '/../..' . '/Noblesse/Character/CharacterType/Werewolf.php',
-        'Noblesse\\Character\\Factory\\CharacterFactory' => __DIR__ . '/../..' . '/Noblesse/Character/Factory/CharacterFactory.php',
+        'Noblesse\\Character\\Factory\\NewCharacterFactory' => __DIR__ . '/../..' . '/Noblesse/Character/Factory/NewCharacterFactory.php',
         'Noblesse\\Character\\Interfaces\\CharacterInterface' => __DIR__ . '/../..' . '/Noblesse/Character/Interfaces/CharacterInterface.php',
-        'Noblesse\\Character\\ModifiedHuman' => __DIR__ . '/../..' . '/Noblesse/Character/ModifiedHuman.php',
-        'Noblesse\\Dialogue\\IntroDialogue' => __DIR__ . '/../..' . '/Noblesse/Dialogue/IntroDialogue.php',
-        'Noblesse\\Storyline\\Direction' => __DIR__ . '/../..' . '/Noblesse/Storyline/Direction.php',
-        'Noblesse\\Storyline\\Frankenstein\\FirstRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/Frankenstein/FirstRoom.php',
-        'Noblesse\\Storyline\\Frankenstein\\FourthRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/Frankenstein/FourthRoom.php',
-        'Noblesse\\Storyline\\Frankenstein\\SecondRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/Frankenstein/SecondRoom.php',
-        'Noblesse\\Storyline\\Frankenstein\\ThirdRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/Frankenstein/ThirdRoom.php',
-        'Noblesse\\Storyline\\M_21\\FirstRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/M_21/FirstRoom.php',
-        'Noblesse\\Storyline\\M_21\\FourthRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/M_21/FourthRoom.php',
-        'Noblesse\\Storyline\\M_21\\SecondRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/M_21/SecondRoom.php',
-        'Noblesse\\Storyline\\M_21\\ThirdRoom' => __DIR__ . '/../..' . '/Noblesse/Storyline/M_21/ThirdRoom.php',
-        'Noblesse\\Storyline\\Map' => __DIR__ . '/../..' . '/Noblesse/Storyline/Map.php',
         'Noblesse\\Utility\\MainUtil' => __DIR__ . '/../..' . '/Noblesse/Utility/MainUtil.php',
-        'Noblesse\\Utility\\RoomExploration' => __DIR__ . '/../..' . '/Noblesse/Utility/RoomExploration.php',
         'Noblesse\\Utility\\Status' => __DIR__ . '/../..' . '/Noblesse/Utility/Status.php',
     );
 

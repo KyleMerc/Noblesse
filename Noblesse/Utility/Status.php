@@ -21,10 +21,9 @@ abstract class Status
         $weapon   = $character->getWeaponType();
         $charType = $character->getCharType();
         $damage   = $character->getMinMaxDamage();
+        $modType  = $character->getModHumanType();
 
-        if ($name == 'M-21' || $name == 'Frankenstein') {
-            $modType = $character->getModHumanType();
-
+        if ($modType !== NULL) {
             $statusMsg = "
                   Room: 
                   ----------------------------------------------

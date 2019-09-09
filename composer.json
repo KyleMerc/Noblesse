@@ -12,6 +12,9 @@
     "autoload": {
         "psr-4": {
             "Noblesse\\": "Noblesse"
-        }
+        },
+        "files": [
+            "Noblesse/Character/Helpers/CharHelpers.php"
+        ]
     }
 }

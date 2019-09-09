@@ -5,26 +5,27 @@ namespace Noblesse\Utility;
 require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 
 use Noblesse\Character\Character;
-use Noblesse\Character\Factory\CharacterFactory;
+use Noblesse\Character\Factory\NewCharacterFactory;
 
 abstract class MainUtil
 {
     /**
      * Default values is instantiated in object creation.
      * @param string $option
-     * @return \Noblesse\Character\Character
+     * @return Character
      */
     public static function mainCharacter(string $opt)
     {
         switch (strtoupper($opt)) {
             case 'F':
-                return CharacterFactory::makeCharacter('SuperModHuman');
+                $character = NewCharacterFactory::makeCharacter('SuperModifiedHuman');
+                return $character;
             case 'M':
-                return CharacterFactory::makeCharacter('Werewolf');
+                return NewCharacterFactory::makeCharacter('Werewolf');
             case 'M2':
-                return CharacterFactory::makeCharacter('SimpleModHuman');
+                return NewCharacterFactory::makeCharacter('SimpleModifiedHuman');
             case 'H':
-                return CharacterFactory::makeCharacter('Human');
+                return NewCharacterFactory::makeCharacter('Human');
             default:
                 return NULL;
         }
@@ -39,9 +40,7 @@ abstract class MainUtil
     {
         switch (strtoupper($opt)) {
             case 'V':
-                $vampire = CharacterFactory::makeCharacter('Vampire');
-                $vampire->setHealth(rand(40, 50));
-                return $vampire;
+                return NewCharacterFactory::makeCharacter('Vampire');
             default:
                 return NULL;
         }
