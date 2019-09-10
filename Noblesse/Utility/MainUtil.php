@@ -65,7 +65,7 @@ abstract class MainUtil
         }
 
         $menuBattle = '
-            Attack enemy [atk] / [attack]
+            Attack enemy [atk]
             Run away     [run]';
 
         $battleMsg = "
@@ -97,6 +97,10 @@ abstract class MainUtil
                 
                 if($enemyChar->getHealth() == 0) {
                     echo "\t    You have killed the enemy\n";
+                    $keyExist = in_array('key', $mainChar->getItems());
+
+                    if (! $keyExist) $mainChar->grab('key');
+                    
                     return 'victory';
                 } elseif ($mainChar->getHealth() == 0) {
                     echo "\t    You have been killed\n";

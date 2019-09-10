@@ -46,6 +46,27 @@ class ExploreRoom
         $this->currentRoom = $nextRoom;
     }
 
+    public function lockedRooms() {
+        $north          = $this->currentRoom->north();
+        $east           = $this->currentRoom->east();
+        $south          = $this->currentRoom->south();
+        $west           = $this->currentRoom->west();
+        $lockedRoomMsg  = '';
+
+        if ($north && $north->isDoorLocked())  $lockedRoomMsg .= "\tNorth:" . $north->getRoomName() . "\n";
+        if ($east  && $east->isDoorLocked())   $lockedRoomMsg .= "\tEast:" . $east->getRoomName() . "\n";
+        if ($south && $south->isDoorLocked())  $lockedRoomMsg .= "\tSouth:" . $south->getRoomName() . "\n";
+        if ($west  && $west->isDoorLocked())   $lockedRoomMsg .= "\tWest:" . $west->getRoomName() . "\n";
+
+        if($lockedRoomMsg == '') return true;
+
+        echo "\tLocked Rooms: \n";
+        echo "\tOptions: [n]/[e]/[s]/[w]\n";
+        echo "\t-----------------\n";
+        echo $lockedRoomMsg;
+        echo "\t-----------------\n";
+    }
+
     /**
      * Room menu for travelling to the rooms.
      * 
@@ -67,15 +88,15 @@ class ExploreRoom
             
 
             $availableRooms = '';
-            if ($north) $availableRooms .= "North: " . $north->getRoomName() . "\n";
-            if ($east)  $availableRooms .= "East:  " . $east->getRoomName() . "\n";
-            if ($south) $availableRooms .= "South: " . $south->getRoomName() . "\n";
-            if ($west)  $availableRooms .= "West:  " . $west->getRoomName() . "\n";
+            if ($north) $availableRooms .= "\tNorth: " . $north->getRoomName() . "\n";
+            if ($east)  $availableRooms .= "\tEast:  " . $east->getRoomName() . "\n";
+            if ($south) $availableRooms .= "\tSouth: " . $south->getRoomName() . "\n";
+            if ($west)  $availableRooms .= "\tWest:  " . $west->getRoomName() . "\n";
 
             echo "\n\nAdjacent Rooms:\n";
-            echo "-----------------\n";
+            echo "\t-----------------\n";
             echo $availableRooms;
-            echo "-----------------\n\n";
+            echo "\t-----------------\n\n";
 
             $opt = readline("Where to go?\n[n]/[e]/[s]/[w] or Go back [q]: ");
 

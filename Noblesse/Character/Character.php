@@ -147,6 +147,11 @@ class Character
     {
         echo "\nItem acquired: " . $item . "\n";
 
-        $this->inventory = $item;
+        $this->inventory[] = $item;
+    }
+
+    public function getItems(): array
+    {
+        return $this->inventory;
     }
 }

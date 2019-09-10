@@ -6,13 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
 {
-<<<<<<< HEAD
-=======
     public static $files = array (
         '62e494c0fc9a7f12af81b47db9ff0916' => __DIR__ . '/../..' . '/Noblesse/Character/Helpers/CharHelpers.php',
     );
 
->>>>>>> 6967682959c28d84f67549fb91d8dc8208e95618
     public static $prefixLengthsPsr4 = array (
         'N' => 
         array (
@@ -27,8 +24,6 @@ class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
         ),
     );
 
-<<<<<<< HEAD
-=======
     public static $classMap = array (
         'Noblesse\\Character\\Character' => __DIR__ . '/../..' . '/Noblesse/Character/Character.php',
         'Noblesse\\Character\\Factory\\NewCharacterFactory' => __DIR__ . '/../..' . '/Noblesse/Character/Factory/NewCharacterFactory.php',
@@ -37,16 +32,12 @@ class ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0
         'Noblesse\\Utility\\Status' => __DIR__ . '/../..' . '/Noblesse/Utility/Status.php',
     );
 
->>>>>>> 6967682959c28d84f67549fb91d8dc8208e95618
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0::$prefixDirsPsr4;
-<<<<<<< HEAD
-=======
             $loader->classMap = ComposerStaticInited5320c20a02f616ea0b5f3ca1ddc2b0::$classMap;
->>>>>>> 6967682959c28d84f67549fb91d8dc8208e95618
 
         }, null, ClassLoader::class);
     }
