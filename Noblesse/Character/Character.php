@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
 use Noblesse\Character\Interfaces\CharacterInterface;
 
 use const Noblesse\Character\Helpers\BASE_HEALTH;
-class Character implements CharacterInterface
+class Character
 {
     private $name;
     private $charType;
@@ -17,6 +17,7 @@ class Character implements CharacterInterface
     private $minDamage;
     private $maxDamage;
     private $modHumanType;
+    private $inventory = [];
     
     /**
      * Characteristics are defined
@@ -142,12 +143,10 @@ class Character implements CharacterInterface
         return "\t    " . $this->getName() . " deals ". $damage . " damage\n";
     }
 
-    /**
-     * @return bool Still thinking this might be useful
-     * but not used right now.
-     */
-    public function flee()
+    public function grab(string $item): void
     {
-        return true;
+        echo "\nItem acquired: " . $item . "\n";
+
+        $this->inventory = $item;
     }
 }

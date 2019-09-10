@@ -23,9 +23,11 @@ abstract class Status
         $damage   = $character->getMinMaxDamage();
         $modType  = $character->getModHumanType();
 
+        $currentRoomName = $currentRoom->getRoomName(); 
+
         if ($modType !== NULL) {
             $statusMsg = "
-                  Room: 
+                  Room: $currentRoomName
                   ----------------------------------------------
                   |                                            |
                      Name: $name -- Health: $health / 100
@@ -41,7 +43,7 @@ abstract class Status
             return $statusMsg;
         }
         $statusMsg = "
-                  Room: 
+                  Room: $currentRoomName
                   ----------------------------------------------
                   |                                            |
                      Name: $name -- Health: $health / 100
@@ -55,26 +57,5 @@ abstract class Status
                   ----------------------------------------------\n";
 
         return $statusMsg;
-    }
-
-    public static function sampleStatusMap(ExploreRoom $currentRoom)
-    {
-       $room = $currentRoom->currentRoom();
-       $roomName = $room->getRoomName();
-      $statusMsg = "
-         Room: $roomName
-         ----------------------------------------------
-         |                                            |
-            Name: name -- Health: health / 100
-         |                                            |
-            Character Type: charType
-         |                                            |
-            Weapon: weapon
-         |                                            |          
-            Damage: {damage['min']} - {damage['max']}          
-         |                                            |          
-         ----------------------------------------------\n";
-
-         echo $statusMsg;
     }
 }

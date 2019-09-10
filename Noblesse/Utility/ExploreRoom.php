@@ -13,41 +13,71 @@ class ExploreRoom
     private $roomSetup;
     private static $regexDirection = '/^[^a-z0-9]*([newsq])[^a-z0-9]*$/';
 
-    public function __construct(string $mainCharname)
+    /**
+     * Setup the character rooms
+     * 
+     * @param string $mainCharName
+     * @return void
+     */
+    public function __construct(string $mainCharName)
     {
-        $this->roomSetup    = NewRoomFactory::setCharRooms($mainCharname);
+        $this->roomSetup    = NewRoomFactory::setCharRooms($mainCharName);
         $this->currentRoom  = $this->roomSetup['firstRoom'];
     }
 
+    /**
+     * Return current Room
+     * 
+     * @return \Noblesse\Storyline\Map
+     */
     public function currentRoom()
     {
         return $this->currentRoom;
     }
 
+    /**
+     * Set to the next room
+     * 
+     * @param \Noblesse\Storyline\Interfaces\DirectionInterface
+     * @return void
+     */
     public function nextRoom(DirectionInterface $nextRoom)
     {
         $this->currentRoom = $nextRoom;
     }
 
-    public function roomStart()
+    /**
+     * Room menu for travelling to the rooms.
+     * 
+     * @return void
+     */
+    public function roomMenu()
     {
-        while (true) {
-            echo "\nCurrent Room:" . $this->currentRoom->getRoomName() . "\n\n";
+        $noRoomMsg = "
+            ---------------
+            |No Room Found|
+            ---------------\n
+        ";
 
-            $north  = $this->currentRoom->north();
-            $east   = $this->currentRoom->east();
-            $south  = $this->currentRoom->south();
-            $west   = $this->currentRoom->west();
+        while (true) {
+            $north       = $this->currentRoom->north();
+            $east        = $this->currentRoom->east();
+            $south       = $this->currentRoom->south();
+            $west        = $this->currentRoom->west();
+            
 
             $availableRooms = '';
             if ($north) $availableRooms .= "North: " . $north->getRoomName() . "\n";
-            if ($east)  $availableRooms .= "East: " . $east->getRoomName() . "\n";
+            if ($east)  $availableRooms .= "East:  " . $east->getRoomName() . "\n";
             if ($south) $availableRooms .= "South: " . $south->getRoomName() . "\n";
-            if ($west)  $availableRooms .= "West: " . $west->getRoomName() . "\n";
+            if ($west)  $availableRooms .= "West:  " . $west->getRoomName() . "\n";
 
-            echo "Adjacent Rooms:\n" . $availableRooms . "\n";
+            echo "\n\nAdjacent Rooms:\n";
+            echo "-----------------\n";
+            echo $availableRooms;
+            echo "-----------------\n\n";
 
-            $opt = readline("Where to go?\n[n]/[e]/[s]/[w] or quit [q]: ");
+            $opt = readline("Where to go?\n[n]/[e]/[s]/[w] or Go back [q]: ");
 
             if (preg_match(self::$regexDirection, $opt) == 0) {
                 echo "\nInvalid command...\n\n";
@@ -64,7 +94,7 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($north);
-                    } else echo "\nNo room found\n";
+                    } else echo $noRoomMsg;
 
                     break;
                 case 'e':
@@ -75,7 +105,7 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($east);
-                    } else echo "\nNo room found\n";
+                    } else echo $noRoomMsg;
 
                     break;
                 case 's':
@@ -86,7 +116,7 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($south);
-                    } else echo "\nNo room found\n";
+                    } else echo $noRoomMsg;
 
                     break;
                 case 'w':
@@ -97,7 +127,7 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($west);
-                    } else echo "\nNo room found\n";
+                    } else echo $noRoomMsg;
 
                     break;
             }

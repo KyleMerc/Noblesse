@@ -4,8 +4,11 @@ namespace Noblesse\Storyline;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
+use Noblesse\Character\Character;
 use Noblesse\Storyline\Interfaces\DirectionInterface;
 use Noblesse\Storyline\Interfaces\MapInterface;
+use Noblesse\Utility\MainUtil as Char;
+
 abstract class Map implements MapInterface, DirectionInterface
 {
     private $roomName;
@@ -41,7 +44,7 @@ abstract class Map implements MapInterface, DirectionInterface
         $this->roomOrder    = $newRoomOrder;
     }
 
-    public function getRoomName()
+    public function getRoomName(): string
     {
         return $this->roomName;
     }
@@ -65,19 +68,24 @@ abstract class Map implements MapInterface, DirectionInterface
         }
     }
 
-    public function isDoorLocked()
+    public function isDoorLocked(): bool
     {
         return $this->isLocked;
     }
 
-    public function getTrapCount()
+    public function getTrapCount(): int
     {
         return $this->trapCount;
     }
 
-    public function getItemCount()
+    public function getItemCount(): int
     {
         return $this->itemCount;
+    }
+
+    public static function enemySpawn(Character $mainChar, Character $enemyChar): string 
+    {  
+        return Char::battleStart($mainChar, $enemyChar);
     }
 
     /**
@@ -94,7 +102,7 @@ abstract class Map implements MapInterface, DirectionInterface
         DirectionInterface $newEast  = NULL, 
         DirectionInterface $newSouth = NULL, 
         DirectionInterface $newWest  = NULL
-    ) {
+    ):void {
         $this->north = $newNorth;
         $this->east = $newEast;
         $this->south = $newSouth;

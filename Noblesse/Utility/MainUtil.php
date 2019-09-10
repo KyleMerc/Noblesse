@@ -18,8 +18,7 @@ abstract class MainUtil
     {
         switch (strtoupper($opt)) {
             case 'F':
-                $character = NewCharacterFactory::makeCharacter('SuperModifiedHuman');
-                return $character;
+                return NewCharacterFactory::makeCharacter('SuperModifiedHuman');
             case 'M':
                 return NewCharacterFactory::makeCharacter('Werewolf');
             case 'M2':
@@ -95,6 +94,7 @@ abstract class MainUtil
                 echo $enemyChar->attack($mainChar);
                 echo "\t    ============\n";
                 sleep(1);
+                
                 if($enemyChar->getHealth() == 0) {
                     echo "\t    You have killed the enemy\n";
                     return 'victory';
@@ -105,13 +105,8 @@ abstract class MainUtil
             } elseif (strtolower($option) === 'flee' || strtolower($option) === 'run') {
                 // $flee = $mainChar->flee();
                 echo "\t    You ran away\n";
-                break;
+                return 'flee';
             } else echo "\t    Invalid command\n";
         }
-    }
-
-    public static function mainMenu()
-    {
-        $menu = "";
     }
 }
