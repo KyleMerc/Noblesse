@@ -12,6 +12,7 @@
 <ul>
 <li>Simply run the command in your current directory in your terminal <code>php main.php</code></li>
 </ul>
+<<<<<<< HEAD
 <h1 id="introduction">Introduction</h1>
 <p>You can choose 1 of the 4 characters: <strong>Frankenstein</strong>, <strong>Muzaka</strong>, <strong>Han Shinwoo</strong>, <strong>M-21</strong>.</p>
 <p>You will be the one who will awaken the noblesse(ruler of nobles - a <em>vampire</em>), <strong>Cadis Etrama di Raizel</strong>, as you were assigned by the phantom in your dreams. You’re wondering what that was and when you look around you are in an abandoned mansion. You can’t get out as if it was sealed with magic. You have no choice but to follow the instructions of the phantom and know what lies behind that dream. (All 4 of them have different storyline). <img src="https://lh3.googleusercontent.com/OqGSUGX1r4EwnriaxWnvTfG9SYf64fp2n5-Tckda6F0Q-3B5LzDtGAGu9F4m4A5htN0kTxfTBoo" alt="" title="Noblesse"></p>
@@ -55,4 +56,14 @@ He needs to find out why all these things looks familiar to him.</p>
 <p><img src="https://lh3.googleusercontent.com/4az3zPaHcgP_Lu8xhDLkK-ove_UA51mDZ_U_W7V8BxGRpMQinfovdQMzYo-l5S5Aj5DQ0lagydY=s300" alt="" title="M21 Storyline"></p>
 <p><img src="https://lh3.googleusercontent.com/8XOdi8pdgun6Ct5m8HvCJpr3A1vrL_D7o96_5PkG7DZIAe3pEGFS0cUg5bmHQH5EcGvhujoBOqE=s500" alt="" title="Muzaka Storyline"></p>
 <p><img src="https://lh3.googleusercontent.com/lvoXSiZJ6mRahR-wfD3yWH_CpPNzgf054o7-9mbu1DZyHxQx3LywDVHY7LJp5trpqn7ImJhH6nc=s500" alt="" title="Frankenstein Storyline"></p>
+=======
+<h2 id="features">Features</h2>
+<ul>
+<li>Each character has their own storyline.</li>
+<li>There is no regeneration or healing potion. If the character dies the game is restarted (either you died from the enemy or trap). So survive as you can.</li>
+<li>Only 1 type of attack is available or choose to flee from the enemy.</li>
+<li>You can see your status of your character</li>
+<li>Collect items and see your inventory.</li>
+</ul>
+>>>>>>> 6967682959c28d84f67549fb91d8dc8208e95618
 

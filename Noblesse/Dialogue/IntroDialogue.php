@@ -21,7 +21,7 @@ abstract class IntroDialogue
      * Display Menu option
      * @return string
      */
-    public static function mainMenu()
+    public static function startingMenu()
     {
         $welcome = "
         Welcome to Noblesse - SUD game.
@@ -37,6 +37,7 @@ abstract class IntroDialogue
 
     /**
      * Start of the story
+     * @param string $characterName
      * @return string[]
      */
     public static function introDialogue($charName)

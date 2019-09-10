@@ -6,4 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
+=======
+    'Noblesse\\Character\\Character' => $baseDir . '/Noblesse/Character/Character.php',
+    'Noblesse\\Character\\Factory\\NewCharacterFactory' => $baseDir . '/Noblesse/Character/Factory/NewCharacterFactory.php',
+    'Noblesse\\Character\\Interfaces\\CharacterInterface' => $baseDir . '/Noblesse/Character/Interfaces/CharacterInterface.php',
+    'Noblesse\\Utility\\MainUtil' => $baseDir . '/Noblesse/Utility/MainUtil.php',
+    'Noblesse\\Utility\\Status' => $baseDir . '/Noblesse/Utility/Status.php',
+>>>>>>> 6967682959c28d84f67549fb91d8dc8208e95618
 );
