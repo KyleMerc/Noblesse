@@ -79,7 +79,7 @@ while (true) {
         case 'unlock':
             $noLockedRoom = $room->lockedRooms();
 
-            if (! $noLockedRoom) {
+            if ($noLockedRoom) {
                 $openDoor = readline("Which door to unlock?: ");
 
                 $key = in_array('key', $mainChar->getItems());

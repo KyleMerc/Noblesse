@@ -21,14 +21,13 @@ abstract class NewCharacterFactory
     }
 
     /**
-     * Default creation are Main characters
+     * Default creation are Main characters except vampire
      *
-     * @param string $newName
      * @return Character
      */
-    public static function SuperModifiedHuman(string $newName = 'Frankenstein')
+    public static function SuperModifiedHuman()
     {
-        $character = new Character($newName, 'Modified Human', 'Dark Spear');
+        $character = new Character('Frankenstein', 'Modified Human', 'Dark Spear');
 
         $character->setDamage(30, 50);
         $character->setModHumanType(true, 'Super');
@@ -36,9 +35,9 @@ abstract class NewCharacterFactory
         return $character;
     }
 
-    public static function SimpleModifiedHuman(string $newName = 'M-21')
+    public static function SimpleModifiedHuman()
     {
-        $character = new Character($newName, 'Modified Human', 'Gun');
+        $character = new Character('M-21', 'Modified Human', 'Gun');
 
         $character->setDamage(25, 30);
         $character->setModHumanType(true, 'Simple');
@@ -46,9 +45,9 @@ abstract class NewCharacterFactory
         return $character;
     }
 
-    public static function Human(string $newName = 'Han Shinwoo')
+    public static function Human()
     {
-        $character = new Character($newName, 'Human', 'Karate');
+        $character = new Character('Han Shinwoo', 'Human', 'Karate');
 
         $character->setDamage(40, 45);
         $character->setModHumanType();
@@ -56,9 +55,9 @@ abstract class NewCharacterFactory
         return $character;
     }
 
-    public static function Werewolf(string $newName = 'Muzaka')
+    public static function Werewolf()
     {
-        $character = new Character($newName, 'Werewolf', 'Strong Punch');
+        $character = new Character('Muzaka', 'Werewolf', 'Strong Punch');
 
         $character->setDamage(25, 45);
         $character->setModHumanType();
@@ -66,9 +65,9 @@ abstract class NewCharacterFactory
         return $character;
     }
 
-    public static function Vampire(string $newName = 'Nameless')
+    public static function Vampire()
     {
-        $character = new Character($newName, 'Vampire', 'Claws');
+        $character = new Character('Nameless', 'Vampire', 'Claws');
 
         $character->setHealth(rand(50, 60));
         $character->setDamage(1, 10);

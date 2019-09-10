@@ -18,4 +18,12 @@ class FourthRoom extends Map
             true
         );
     }
+
+    public function wakeUpNoblesse(string $item): bool
+    {
+
+        echo "Am I missing something?!\n";
+        echo "The phantom has given you a task to defeat the Noblesse";
+        return false;
+    }
 }

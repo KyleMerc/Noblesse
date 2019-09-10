@@ -46,6 +46,11 @@ class ExploreRoom
         $this->currentRoom = $nextRoom;
     }
 
+    /**
+     * Show locked rooms in the current room
+     *
+     * @return bool|null
+     */
     public function lockedRooms() {
         $north          = $this->currentRoom->north();
         $east           = $this->currentRoom->east();
@@ -53,18 +58,21 @@ class ExploreRoom
         $west           = $this->currentRoom->west();
         $lockedRoomMsg  = '';
 
-        if ($north && $north->isDoorLocked())  $lockedRoomMsg .= "\tNorth:" . $north->getRoomName() . "\n";
-        if ($east  && $east->isDoorLocked())   $lockedRoomMsg .= "\tEast:" . $east->getRoomName() . "\n";
-        if ($south && $south->isDoorLocked())  $lockedRoomMsg .= "\tSouth:" . $south->getRoomName() . "\n";
-        if ($west  && $west->isDoorLocked())   $lockedRoomMsg .= "\tWest:" . $west->getRoomName() . "\n";
+        if ($north && $north->isDoorLocked()) $lockedRoomMsg .= "\tNorth:" . $north->getRoomName() . "\n";
+        if ($east  && $east->isDoorLocked())  $lockedRoomMsg .= "\tEast:" . $east->getRoomName() . "\n";
+        if ($south && $south->isDoorLocked()) $lockedRoomMsg .= "\tSouth:" . $south->getRoomName() . "\n";
+        if ($west  && $west->isDoorLocked())  $lockedRoomMsg .= "\tWest:" . $west->getRoomName() . "\n";
 
-        if($lockedRoomMsg == '') return true;
+        if($lockedRoomMsg == '') return false;
 
+        
         echo "\tLocked Rooms: \n";
         echo "\tOptions: [n]/[e]/[s]/[w]\n";
         echo "\t-----------------\n";
         echo $lockedRoomMsg;
         echo "\t-----------------\n";
+
+        return true;
     }
 
     /**
@@ -85,13 +93,37 @@ class ExploreRoom
             $east        = $this->currentRoom->east();
             $south       = $this->currentRoom->south();
             $west        = $this->currentRoom->west();
-            
+            $roomDisplay = [];
 
             $availableRooms = '';
-            if ($north) $availableRooms .= "\tNorth: " . $north->getRoomName() . "\n";
-            if ($east)  $availableRooms .= "\tEast:  " . $east->getRoomName() . "\n";
-            if ($south) $availableRooms .= "\tSouth: " . $south->getRoomName() . "\n";
-            if ($west)  $availableRooms .= "\tWest:  " . $west->getRoomName() . "\n";
+            if ($north) {
+                $availableRooms .= "\tNorth: " . $north->getRoomName() . "\n";
+                $roomDisplay['north'] = $north->getRoomName();
+            } 
+            if ($east) {
+                $availableRooms .= "\tEast:  " . $east->getRoomName() . "\n";
+                $roomDisplay['east'] = $east->getRoomName();
+            } 
+            if ($south) {
+                $availableRooms .= "\tSouth: " . $south->getRoomName() . "\n";
+                $roomDisplay['south'] = $south->getRoomName();
+            } 
+            if ($west) {
+                $availableRooms .= "\tWest:  " . $west->getRoomName() . "\n";
+                $roomDisplay['west'] = $west->getRoomName();
+            } 
+
+        //     echo "
+        //         {$roomDisplay['north']}
+        //               north
+        //                 |
+        // {$roomDisplay['west']}                 {$roomDisplay['east']}             
+        //     west -----     ------ east 
+                                    
+        //                 |
+        //               south
+        //             {$roomDisplay['south']}\n";
+
 
             echo "\n\nAdjacent Rooms:\n";
             echo "\t-----------------\n";

@@ -40,6 +40,10 @@ abstract class MainUtil
         switch (strtoupper($opt)) {
             case 'V':
                 return NewCharacterFactory::makeCharacter('Vampire');
+            case 'B':
+                $noblesse = NewCharacterFactory::makeCharacter('Vampire');
+                $noblesse->setName('Raizel');
+                $noblesse->setDamage(10, 30);
             default:
                 return NULL;
         }
@@ -106,8 +110,7 @@ abstract class MainUtil
                     echo "\t    You have been killed\n";
                     return 'game over';
                 }
-            } elseif (strtolower($option) === 'flee' || strtolower($option) === 'run') {
-                // $flee = $mainChar->flee();
+            } elseif (strtolower($option) === 'run') {
                 echo "\t    You ran away\n";
                 return 'flee';
             } else echo "\t    Invalid command\n";
