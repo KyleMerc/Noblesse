@@ -19,4 +19,19 @@ class FirstRoom extends Map
             false
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            -----------------------------------------
+           |                 HINT                    |
+           |  A bowl appeared on the small table.    |
+           |  Take it for you might it need later.   |
+           |  Type [grab] command.                   |
+            -----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

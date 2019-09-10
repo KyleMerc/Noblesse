@@ -19,4 +19,20 @@ class FirstRoom extends Map
             false
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            -----------------------------------------
+           |                 HINT                    |
+           |  There is a box full of ramen pack      |
+           |  noodles. Comes with a handy plastick   |
+           |  chopsticks. Now its obvious.           |
+           |  Type [grab] command.                   |
+            -----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

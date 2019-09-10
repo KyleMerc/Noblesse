@@ -18,4 +18,22 @@ class SecondRoom extends Map
             false
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            ----------------------------------------
+           |                 HINT                   |
+           |  You really need a hotwater for obvious|
+           |  reasons.                              |
+           |  There is a packed of ramen noodle     |
+           |  inside the drawer.                    |
+           |  You can grab the 2 items.             |
+           |  Type [grab] command.                  |
+            ----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

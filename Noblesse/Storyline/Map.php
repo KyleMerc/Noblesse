@@ -20,6 +20,7 @@ abstract class Map implements MapInterface, DirectionInterface
     private $itemCount;
     private $roomOrder;
     private $isLocked;
+    private $enemyAppear;
     
 
     /**
@@ -54,6 +55,11 @@ abstract class Map implements MapInterface, DirectionInterface
         return $this->roomOrder;
     }
 
+    public function enemyChanceAmbush(): int
+    {
+        return $this->enemyAppear;
+    }
+
     public function openDoor(bool $key, string $door)
     {
         $openDoorMsg = "\nDoor is now open!\n";
@@ -62,30 +68,33 @@ abstract class Map implements MapInterface, DirectionInterface
             case 'n':
                 if ($this->north && $this->north->isDoorLocked()) {
                     echo $openDoorMsg;
-                    $this->north->isLocked = $key;
-                } 
+                    $this->north->enemyAppear = rand(1, 40);
+                    $this->north->isLocked    = $key;
+                }
                 break;
             case 'e':
                 if ($this->east && $this->east->isDoorLocked()) {
                     echo $openDoorMsg;
-                    $this->east->isLocked = $key;
+                    $this->east->enemyAppear = rand(1, 40);
+                    $this->east->isLocked    = $key;
                 }
                 break;
             case 's':
                 if ($this->south && $this->south->isDoorLocked()) {
                     echo $openDoorMsg;
-                    $this->south->isLocked = $key;
+                    $this->south->enemyAppear = rand(1, 40);
+                    $this->south->isLocked    = $key;
                 }
                 break;
             case 'w':
                 if ($this->west && $this->west->isDoorLocked()) {
                     echo $openDoorMsg;
-                    $this->west->isLocked = $key;
+                    $this->west->enemyAppear = rand(1, 40);
+                    $this->west->isLocked    = $key;
                 }
                 break;
             default: echo "\nUnknown command\n";
         }
-        
         
     }
 

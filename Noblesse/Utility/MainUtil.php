@@ -44,6 +44,7 @@ abstract class MainUtil
                 $noblesse = NewCharacterFactory::makeCharacter('Vampire');
                 $noblesse->setName('Raizel');
                 $noblesse->setDamage(10, 30);
+                return $noblesse;
             default:
                 return NULL;
         }

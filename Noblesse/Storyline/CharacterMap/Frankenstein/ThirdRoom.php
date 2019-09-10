@@ -18,4 +18,19 @@ class ThirdRoom extends Map
             false
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            ----------------------------------------
+           |                 HINT                   |
+           |  A dusty bowl is on the table. It needs|
+           |  to be washed. Get the item.           |
+           |  Type [grab] command.                  |
+            ----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

@@ -19,4 +19,19 @@ class FirstRoom extends Map
             false
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            ----------------------------------------
+           |                 HINT                   |
+           |  There is a golden chopstick hanged on |
+           |  on the wall with a frame. You can grab|
+           |  that item. Type [grab] command.       |
+            ----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

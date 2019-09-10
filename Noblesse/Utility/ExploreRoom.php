@@ -6,22 +6,26 @@ require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 
 use Noblesse\Storyline\Factory\NewRoomFactory;
 use Noblesse\Storyline\Interfaces\DirectionInterface;
+use Noblesse\Character\Character;
+use Noblesse\Utility\MainUtil as Char;
 
 class ExploreRoom
 {
     private $currentRoom;
     private $roomSetup;
+    private $mainChar;
     private static $regexDirection = '/^[^a-z0-9]*([newsq])[^a-z0-9]*$/';
 
     /**
      * Setup the character rooms
      * 
-     * @param string $mainCharName
+     * @param \Noblesse\Character\Character $mainCharName
      * @return void
      */
-    public function __construct(string $mainCharName)
+    public function __construct(Character $mainChar)
     {
-        $this->roomSetup    = NewRoomFactory::setCharRooms($mainCharName);
+        $this->mainChar     = $mainChar;
+        $this->roomSetup    = NewRoomFactory::setCharRooms($mainChar->getName());
         $this->currentRoom  = $this->roomSetup['firstRoom'];
     }
 
@@ -113,17 +117,19 @@ class ExploreRoom
                 $roomDisplay['west'] = $west->getRoomName();
             } 
 
-        //     echo "
-        //         {$roomDisplay['north']}
-        //               north
-        //                 |
-        // {$roomDisplay['west']}                 {$roomDisplay['east']}             
-        //     west -----     ------ east 
+            $visualMap = <<<MAP
+            \n\nVisual Map
+                        {$roomDisplay['north']}
+                              north
+                                |
+        {$roomDisplay['west']}                                  {$roomDisplay['east']}             
+            west -----                  ------ east 
                                     
-        //                 |
-        //               south
-        //             {$roomDisplay['south']}\n";
-
+                                |
+                              south
+                            {$roomDisplay['south']}\n
+MAP;
+            echo $visualMap;
 
             echo "\n\nAdjacent Rooms:\n";
             echo "\t-----------------\n";
@@ -147,6 +153,10 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($north);
+
+                        // if ($this->currentRoom->enemyChanceAmbush() <= 40) {
+                        //     Char::battleStart($this->mainChar, Char::enemyCharacter('v'), true);
+                        // }
                     } else echo $noRoomMsg;
 
                     break;
@@ -158,6 +168,10 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($east);
+
+                        // if ($this->currentRoom->enemyChanceAmbush() <= 40) {
+                        //     Char::battleStart($this->mainChar, Char::enemyCharacter('v'), true);
+                        // }
                     } else echo $noRoomMsg;
 
                     break;
@@ -169,6 +183,10 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($south);
+
+                        // if ($this->currentRoom->enemyChanceAmbush() <= 40) {
+                        //     Char::battleStart($this->mainChar, Char::enemyCharacter('v'), true);
+                        // }
                     } else echo $noRoomMsg;
 
                     break;
@@ -180,6 +198,10 @@ class ExploreRoom
                         }
 
                         $this->nextRoom($west);
+
+                        // if ($this->currentRoom->enemyChanceAmbush() <= 40) {
+                        //     Char::battleStart($this->mainChar, Char::enemyCharacter('v'), true);
+                        // }
                     } else echo $noRoomMsg;
 
                     break;

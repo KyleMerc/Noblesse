@@ -18,4 +18,18 @@ class ThirdRoom extends Map
             true
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            -----------------------------------------
+           |                 HINT                    |
+           |  Just enjoy the beautiful scenery of    |
+           |  this place. Isn't it nice?             |
+            -----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

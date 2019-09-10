@@ -7,19 +7,30 @@ use Noblesse\Utility\Status;
 use Noblesse\Utility\ExploreRoom;
 use Noblesse\Dialogue\IntroDialogue as Intro;
 
-$pickChar   = Intro::startingMenu();
+while (true) {
+    $pickChar   = Intro::startingMenu();
+
+    if ($pickChar == 'h' || $pickChar == 'f' || $pickChar == 'm2' || $pickChar == 'm') {
+        break;
+        
+    }
+    echo "\nUnknown command...\n";
+    continue;
+}
 
 $mainChar   = Char::mainCharacter($pickChar);
-$room       = new ExploreRoom($mainChar->getName());
+$room       = new ExploreRoom($mainChar);
 
 $introDialogue =  Intro::introDialogue($mainChar->getName());
 
 echo $introDialogue['intro'];
 echo $introDialogue['charIntro'];
 
-$cmdOpt     = "\n---Command Options--
+$cmdOpt     = "\n   ---Command Options---
+[hint]      Read signboard hint
 [status]    Show character status
 [travel]    Go to the next room
+[grab]      Grab an item
 [inventory] Check storage
 [unlock]    Unlock door
 [quit]      Quit game
@@ -48,8 +59,13 @@ while (true) {
         case 'help':
             echo $cmdOpt;
             break;
+        case 'hint':
+            echo $room->currentRoom()->readSign();
+            break;
         case 'status':
             echo Status::status($mainChar, $room->currentRoom());
+            break;
+        case 'grab':
             break;
         case 'travel':
             $room->roomMenu();
@@ -90,7 +106,7 @@ while (true) {
                 }
                 
                 //Set key to false to mark it not isLocked
-                $room->currentRoom()->openDoor(! $key, $openDoor); 
+                $room->currentRoom()->openDoor(! $key, $openDoor);
 
                 break;
             } else echo "\nNo found locked rooms\n";

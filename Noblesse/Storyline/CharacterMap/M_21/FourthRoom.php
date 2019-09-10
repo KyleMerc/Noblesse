@@ -18,4 +18,27 @@ class FourthRoom extends Map
             true
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            -----------------------------------------
+           |                 HINT                    |
+           |  It's better to give him the best       |
+           |  ramen noodle or else...                |
+            -----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
+
+    public function wakeUpNoblesse(string $itemMerged): bool
+    {
+        if ($itemMerged !== 'ramen') return true;
+
+        echo "\t    Weird. I really did not expect this.\n";
+        echo "\t    (The phantom has given you a task to defeat the Noblesse)\n";
+        return false;
+    }
 }

@@ -18,4 +18,18 @@ class ThirdRoom extends Map
             true
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            -----------------------------------------
+           |                 HINT                    |
+           |  There is a chopstick in the drawer.    |
+           |  Take it. Type [grab] command.          |
+            -----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }

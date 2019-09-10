@@ -18,4 +18,27 @@ class FourthRoom extends Map
             true
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            ----------------------------------------
+           |                 HINT                   |
+           |  As obvious as it is, just give the    |
+           |  ramen to him. To end your misery.     |
+            ----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
+
+    public function wakeUpNoblesse(string $itemMerged): bool
+    {
+        if ($itemMerged !== 'ramen') return true;
+
+        echo "\t    What does have these things to do with him?!\n";
+        echo "\t    (The phantom has given you a task to defeat the Noblesse)\n";
+        return false;
+    }
 }

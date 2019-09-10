@@ -18,4 +18,14 @@ class FourthRoom extends Map
             true
         );
     }
+
+    public function wakeUpNoblesse(string $itemMerged): bool
+    {
+        if ($itemMerged !== 'ramen') return true;
+
+        echo "\t    Am I missing something?!\n";
+        echo "\t    (The phantom has given you a task to defeat the Noblesse)\n";
+        return false;
+    }
+    
 }

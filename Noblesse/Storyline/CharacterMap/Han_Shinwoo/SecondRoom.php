@@ -18,4 +18,19 @@ class SecondRoom extends Map
             false
         );
     }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            -----------------------------------------
+           |                 HINT                    |
+           |  A pack of ramen noodle was left unused.|
+           |  Also a bowl was aside to it. Take them |
+           |  both. Type [grab] command.             |
+            -----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
 }
