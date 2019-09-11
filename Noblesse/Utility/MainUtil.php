@@ -43,7 +43,8 @@ abstract class MainUtil
             case 'B':
                 $noblesse = NewCharacterFactory::makeCharacter('Vampire');
                 $noblesse->setName('Raizel');
-                $noblesse->setDamage(10, 30);
+                $noblesse->setDamage(10, 25);
+                $noblesse->setHealth(150);
                 return $noblesse;
             default:
                 return NULL;

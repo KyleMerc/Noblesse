@@ -35,7 +35,7 @@ MSG;
 
     public function wakeUpNoblesse(string $itemMerged): bool
     {
-        if ($itemMerged !== 'prepared cooked ramen') return true;
+        if ($itemMerged === 'prepared cooked ramen') return true;
 
         echo "\t    Weird. I really did not expect this.\n";
         echo "\t    (The phantom has given you a task to defeat the Noblesse)\n";

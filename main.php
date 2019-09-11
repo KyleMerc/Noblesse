@@ -156,13 +156,34 @@ while (true) {
                     $wakingStatus = $room->currentRoom()->wakeUpNoblesse('');
 
                 if ($wakingStatus) {
+                    echo "\n\t    You have given him his favorite ramen!\n";
                     echo "\nCongratulations... You have finished the game\n";
                     die;
                 }
                 else {
                     sleep(1);
                     echo "\n";
-                    Char::battleStart($mainChar, Char::enemyCharacter('b'), true);
+                    $resetBoss = Char::battleStart($mainChar, Char::enemyCharacter('b'), true);
+
+                    if ($resetBoss == 'flee') {
+                        echo "\t    You're going back to the last room";
+                        switch ($mainChar->getName()) {
+                            case 'Frankenstein':
+                                $room->nextRoom($room->currentRoom()->east());
+                                break;
+                                case 'Han Shinwoo':
+                                $room->nextRoom($room->currentRoom()->north());
+                                break;
+                                case 'Muzaka':
+                                $room->nextRoom($room->currentRoom()->north());
+                                break;
+                                case 'M-21':
+                                $room->nextRoom($room->currentRoom()->south());
+                                break;
+                                
+                        }
+                        break;
+                    }
 
                     echo "\nBad ending...\n";
                     die;
