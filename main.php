@@ -67,13 +67,29 @@ while (true) {
             echo Status::status($mainChar, $room->currentRoom());
             break;
         case 'grab':
-            $noFourthRoom = $room->currentRoom()->getRoomOrder();
-            // $checkRoom    = $room->currentRoom()->getRoomName();
+            $noFourthRoom   = $room->currentRoom()->getRoomOrder();
+            $importantItems = ['ramen', 'teapot', 'coffeemug', 'chopsticks', 'bowl'];
+            $itemExists     = false;
 
-            if ($noFourthRoom != 'fourthRoom') 
+            if ($mainChar->getItems() != false) {
+                foreach ($room->currentRoom()->getItems() as $item) {
+                    if (in_array($item, $mainChar->getItems())) {
+                        $itemExists = true;
+                        break;
+                    }
+                }
+            }
+
+            if ($itemExists) {
+                echo "\nYou already have the item\n";
+                break;
+            }
+
+            if ($noFourthRoom != 'fourthRoom') {
                 $mainChar->grab($room->currentRoom()->getItems());
-            else echo "\nThere are no items here\n";
-
+            } else echo "\nThere are no items here\n";
+            
+            
             break;
         case 'travel':
             $room->roomMenu();
@@ -95,7 +111,7 @@ while (true) {
         case 'inventory':
             echo "Available Items:\n";
             if ($mainChar->getItems() == false) echo "No items found\n";
-
+            
             foreach ($mainChar->getItems() as $items) {
                 echo "* " . $items . "\n";
             }
