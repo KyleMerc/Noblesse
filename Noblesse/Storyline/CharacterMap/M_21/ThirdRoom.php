@@ -20,7 +20,7 @@ class ThirdRoom extends Map
             false
         );
 
-        $this->items[] = 'coffemug';
+        $this->items[] = 'coffeemug';
         $this->items[] = 'ramen';
     }
 

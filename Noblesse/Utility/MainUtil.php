@@ -83,7 +83,7 @@ abstract class MainUtil
         echo "\t    A battle has started\n";
 
         if ($enemyWaiting) {  #Set at the call of the function
-            echo "\n\t    Enemy was waiting at the the door!\n";
+            echo "\n\t    $enemy attacked you first!\n";
             echo $enemyChar->attack($mainChar);
         }
 

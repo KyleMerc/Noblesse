@@ -143,6 +143,11 @@ class Character
         return "\t    " . $this->getName() . " deals ". $damage . " damage\n";
     }
 
+    /**
+     * Grab action
+     * 
+     * @param array $items
+     */
     public function grab(array $items): void
     {
         foreach ($items as $item) {
@@ -152,6 +157,11 @@ class Character
         }
     }
 
+    /**
+     * Show inventory
+     * 
+     * @return array
+     */
     public function getItems(): array
     {
         return $this->inventory;

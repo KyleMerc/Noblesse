@@ -33,6 +33,7 @@ $cmdOpt     = "\n   ---Command Options---
 [grab]      Grab an item
 [inventory] Check storage
 [unlock]    Unlock door
+[wakeup]    WakeUp the Noblesse in the final room.
 [quit]      Quit game
 ----------------------------\n";
 $atkStatus = '';
@@ -101,6 +102,7 @@ while (true) {
             break;
         case 'unlock':
             $noLockedRoom = $room->lockedRooms();
+            $regexDirection = '/^[^a-z0-9]*([news])[^a-z0-9]*$/';
 
             if ($noLockedRoom) {
                 $openDoor = readline("Which door to unlock?: ");
@@ -118,8 +120,40 @@ while (true) {
                 break;
             } else echo "\nNo found locked rooms\n";
 
-            
             break;
+
+            case 'wakeup':
+                $checkItems     = 0;
+                $importantItems = ['ramen', 'teapot', 'coffeemug', 'chopsticks', 'bowl'];
+                $wakingStatus   = false;
+                foreach ($mainChar->getItems() as $item) {
+                    if (in_array($item, $importantItems)) $checkItems += 25;
+                }
+
+                if ($room->currentRoom()->getRoomOrder() != 'fourthRoom') {
+                    echo "\nHe is not here\n";
+                    break;
+                }
+
+                if ($checkItems == 100) 
+                    $wakingStatus = $room->currentRoom()->wakeUpNoblesse('cooked ramen');
+                else 
+                    $wakingStatus = $room->currentRoom()->wakeUpNoblesse('');
+
+                if ($wakingStatus) {
+                    echo "\nCongratulations... You have finished the game\n";
+                    die;
+                }
+                else {
+                    sleep(1);
+                    echo "\n";
+                    Char::battleStart($mainChar, Char::enemyCharacter('b'), true);
+
+                    echo "\nBad ending...\n";
+                    die;
+                }
+
+                break;
         default:
             echo "\nUnknown command...\n";
     }
