@@ -24,7 +24,7 @@
 <p><strong>Enemy Character</strong></p>
 <ul>
 <li>Enemy has lower than 100 hp except for the boss(the Noblesse).</li>
-<li>Can attack.</li>
+<li>Enemy has a chance to spawn in some rooms.</li>
 <li>Enemy will drop item.<br>
 - To unlock room</li>
 </ul>
