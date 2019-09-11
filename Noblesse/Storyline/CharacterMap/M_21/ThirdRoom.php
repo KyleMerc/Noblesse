@@ -8,6 +8,8 @@ use Noblesse\Storyline\Map;
 
 class ThirdRoom extends Map
 {
+    private $items;
+
     public function __construct()
     {
         parent::__construct(
@@ -17,6 +19,14 @@ class ThirdRoom extends Map
             'thirdRoom',
             false
         );
+
+        $this->items[] = 'coffemug';
+        $this->items[] = 'ramen';
+    }
+
+    public function getItems(): array
+    {
+        return $this->items;
     }
 
     public function readSign(): string

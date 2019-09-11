@@ -66,6 +66,13 @@ while (true) {
             echo Status::status($mainChar, $room->currentRoom());
             break;
         case 'grab':
+            $noFourthRoom = $room->currentRoom()->getRoomOrder();
+            // $checkRoom    = $room->currentRoom()->getRoomName();
+
+            if ($noFourthRoom != 'fourthRoom') 
+                $mainChar->grab($room->currentRoom()->getItems());
+            else echo "\nThere are no items here\n";
+
             break;
         case 'travel':
             $room->roomMenu();

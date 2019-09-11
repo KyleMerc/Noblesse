@@ -103,19 +103,19 @@ class ExploreRoom
             if ($north) {
                 $availableRooms .= "\tNorth: " . $north->getRoomName() . "\n";
                 $roomDisplay['north'] = $north->getRoomName();
-            } 
+            } else $roomDisplay['north'] = '';
             if ($east) {
                 $availableRooms .= "\tEast:  " . $east->getRoomName() . "\n";
                 $roomDisplay['east'] = $east->getRoomName();
-            } 
+            } else $roomDisplay['east'] = '';
             if ($south) {
                 $availableRooms .= "\tSouth: " . $south->getRoomName() . "\n";
                 $roomDisplay['south'] = $south->getRoomName();
-            } 
+            } else $roomDisplay['south'] = '';
             if ($west) {
                 $availableRooms .= "\tWest:  " . $west->getRoomName() . "\n";
                 $roomDisplay['west'] = $west->getRoomName();
-            } 
+            } else $roomDisplay['west'] = '';
 
             $visualMap = <<<MAP
             \n\nVisual Map

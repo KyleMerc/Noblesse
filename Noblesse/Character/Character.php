@@ -143,11 +143,13 @@ class Character
         return "\t    " . $this->getName() . " deals ". $damage . " damage\n";
     }
 
-    public function grab(string $item): void
+    public function grab(array $items): void
     {
-        echo "\nItem acquired: " . $item . "\n";
+        foreach ($items as $item) {
+            echo "\nItem acquired: " . $item . "\n";
 
-        $this->inventory[] = $item;
+            $this->inventory[] = $item;   
+        }
     }
 
     public function getItems(): array
