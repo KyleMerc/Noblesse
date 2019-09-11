@@ -44,6 +44,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nSo this is the guy in my dreams. He is so white.\n";
+        echo "\n\t    So this is the guy in my dreams. He is so white.\n";
     }
 }

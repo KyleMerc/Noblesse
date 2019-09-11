@@ -116,6 +116,8 @@ class ExploreRoom
                 $roomDisplay['west'] = $west->getRoomName();
             } else $roomDisplay['west'] = '';
 
+            $this->currentRoom->roomDialogue();
+
             $visualMap = <<<MAP
             \n\nVisual Map
                         {$roomDisplay['north']}

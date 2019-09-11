@@ -48,6 +48,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nI never knew a rest room way this clean.\n";
+        echo "\n\t    I never knew a rest room way this clean.\n";
     }
 }

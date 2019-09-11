@@ -44,6 +44,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nWooah.. There is a secret in here guys.\n";
+        echo "\n\t    Wooah.. There is a secret in here guys.\n";
     }
 }

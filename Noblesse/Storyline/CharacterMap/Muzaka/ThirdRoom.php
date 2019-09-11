@@ -44,6 +44,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nAhhhh where is he anyway.\n";
+        echo "\n\t    Ahhhh where is he anyway.\n";
     }
 }

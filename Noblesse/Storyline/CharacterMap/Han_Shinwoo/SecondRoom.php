@@ -46,6 +46,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nIs anyone hungry? There are a lots of food here.\n";
+        echo "\n\t    Is anyone hungry? There are a lots of food here.\n";
     }
 }

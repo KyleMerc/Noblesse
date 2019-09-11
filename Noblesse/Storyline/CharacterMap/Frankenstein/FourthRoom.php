@@ -44,6 +44,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nThere should be something to wake him up.\n";
+        echo "\n\t    There should be something to wake him up.\n";
     }
 }

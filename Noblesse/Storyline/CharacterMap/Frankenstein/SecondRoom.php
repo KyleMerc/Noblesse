@@ -49,6 +49,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nHmmm. This place is clean, weird.\n";
+        echo "\n\t    Hmmm. This place is clean, weird.\n";
     }
 }

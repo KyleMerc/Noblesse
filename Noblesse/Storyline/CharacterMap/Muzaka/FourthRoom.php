@@ -30,6 +30,6 @@ class FourthRoom extends Map
     
     public function roomDialogue(): void
     {
-        echo "\nThis is unexpected, why is he here?\n";
+        echo "\n\t    This is unexpected, why is he here?\n";
     }
 }

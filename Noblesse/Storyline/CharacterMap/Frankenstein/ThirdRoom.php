@@ -45,6 +45,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nThe sheets has been folded. Where is he?\n";
+        echo "\n\t    The sheets has been folded. Where is he?\n";
     }
 }

@@ -47,6 +47,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nI really need to find Raizel\n";
+        echo "\n\t    I really need to find Raizel\n";
     }
 }

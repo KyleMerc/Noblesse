@@ -45,6 +45,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nI suppose I have to something in here.\n";
+        echo "\n\t    I suppose I have to something in here.\n";
     }
 }

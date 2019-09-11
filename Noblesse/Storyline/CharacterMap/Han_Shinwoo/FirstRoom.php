@@ -46,6 +46,6 @@ MSG;
 
     public function roomDialogue(): void
     {
-        echo "\nWe have to find a way to get out in here.\n";
+        echo "\n\t    We have to find a way to get out in here.\n";
     }
 }

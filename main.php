@@ -68,7 +68,6 @@ while (true) {
             break;
         case 'grab':
             $noFourthRoom   = $room->currentRoom()->getRoomOrder();
-            $importantItems = ['ramen', 'teapot', 'coffeemug', 'chopsticks', 'bowl'];
             $itemExists     = false;
 
             if ($mainChar->getItems() != false) {
