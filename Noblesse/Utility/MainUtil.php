@@ -105,7 +105,7 @@ abstract class MainUtil
                     if ($enemyChar->getName() !== 'Raizel') {
                         echo "\t    You have killed the enemy\n";
 
-                        $keyExist = in_array(['key'], $mainChar->getItems());
+                        $keyExist = in_array('key', $mainChar->getItems());
                         if (! $keyExist) $mainChar->grab(['key']);
                     } else {
                         echo "\t    You have killed the Noblesse\n";

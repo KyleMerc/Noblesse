@@ -94,7 +94,7 @@ while (true) {
             $room->roomMenu();
 
             $enemySpawn = rand(1, 100);
-            if ($enemySpawn <= 30) {
+            if ($enemySpawn <= 40) {
                 $roomOrder = $room->currentRoom()->getRoomOrder();
                 if ($roomOrder == 'firstRoom' || $roomOrder == 'fourthRoom') continue;
 
@@ -108,7 +108,7 @@ while (true) {
 
             break;
         case 'inventory':
-            echo "Available Items:\n";
+            echo "\nAvailable Items:\n";
             if ($mainChar->getItems() == false) echo "No items found\n";
             
             foreach ($mainChar->getItems() as $items) {
