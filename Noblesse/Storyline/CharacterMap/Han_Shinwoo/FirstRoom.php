@@ -43,4 +43,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nWe have to find a way to get out in here.\n";
+    }
 }

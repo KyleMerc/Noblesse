@@ -44,5 +44,10 @@ class ThirdRoom extends Map
 MSG;
 
         return $signBoard;
-    }    
+    }
+
+    public function roomDialogue(): void
+    {
+        echo "\nI never knew a rest room way this clean.\n";
+    }
 }

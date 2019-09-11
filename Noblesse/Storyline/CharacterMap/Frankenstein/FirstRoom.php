@@ -42,4 +42,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nI suppose I have to something in here.\n";
+    }
 }

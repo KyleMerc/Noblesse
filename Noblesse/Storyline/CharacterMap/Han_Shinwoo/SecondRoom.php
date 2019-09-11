@@ -43,4 +43,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nIs anyone hungry? There are a lots of food here.\n";
+    }
 }

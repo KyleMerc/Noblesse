@@ -42,4 +42,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nSo this is his face. Way too foreign to me.\n";
+    }
 }

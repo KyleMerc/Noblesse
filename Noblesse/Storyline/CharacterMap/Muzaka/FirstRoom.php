@@ -44,4 +44,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nI really need to find Raizel\n";
+    }
 }

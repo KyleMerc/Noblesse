@@ -41,4 +41,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nWooah.. There is a secret in here guys.\n";
+    }
 }

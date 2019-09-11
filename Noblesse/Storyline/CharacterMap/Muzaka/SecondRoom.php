@@ -44,4 +44,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nHe really love this part of his mansion.\n";
+    }
 }

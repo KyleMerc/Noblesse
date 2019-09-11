@@ -7,13 +7,13 @@ function FrankRooms(string $opt): string {
     
     switch ($opt) {
         case 'firstRoom':
-            $dialogue = "I have to look for clues somehow.";
+            $dialogue = "I suppose I have to something in here.";
             break;
         case 'secondRoom':
-            $dialogue = "Hmmm. I think there is something in there.";
+            $dialogue = "Hmmm. This place is clean, weird.";
             break;
         case 'thirdRoom':
-            $dialogue = 'What a nice view. I envy this guy';
+            $dialogue = 'The sheets has been folded. Where is he?';
             break;
         case 'fourthRoom':
             $dialogue = 'There should be something to wake him up';

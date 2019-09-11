@@ -46,4 +46,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nHmmm. This place is clean, weird.\n";
+    }
 }

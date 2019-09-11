@@ -42,4 +42,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nThe sheets has been folded. Where is he?\n";
+    }
 }

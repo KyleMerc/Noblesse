@@ -35,10 +35,15 @@ MSG;
 
     public function wakeUpNoblesse(string $itemMerged): bool
     {
-        if ($itemMerged !== 'ramen') return true;
+        if ($itemMerged !== 'prepared cooked ramen') return true;
 
         echo "\t    Weird. I really did not expect this.\n";
         echo "\t    (The phantom has given you a task to defeat the Noblesse)\n";
         return false;
+    }
+
+    public function roomDialogue(): void
+    {
+        echo "\nThere he is. I need to do something to wake him up\n";
     }
 }

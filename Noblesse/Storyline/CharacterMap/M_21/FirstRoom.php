@@ -42,4 +42,9 @@ MSG;
 
         return $signBoard;
     }
+
+    public function roomDialogue(): void
+    {
+        echo "\nThis is place is so majestic...\n";
+    }
 }

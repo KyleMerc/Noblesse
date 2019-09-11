@@ -136,7 +136,7 @@ while (true) {
                 }
 
                 if ($checkItems == 100) 
-                    $wakingStatus = $room->currentRoom()->wakeUpNoblesse('cooked ramen');
+                    $wakingStatus = $room->currentRoom()->wakeUpNoblesse('prepared cooked ramen');
                 else 
                     $wakingStatus = $room->currentRoom()->wakeUpNoblesse('');
 

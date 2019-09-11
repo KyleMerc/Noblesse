@@ -101,10 +101,14 @@ abstract class MainUtil
                 sleep(1);
                 
                 if($enemyChar->getHealth() == 0) {
-                    echo "\t    You have killed the enemy\n";
-                    $keyExist = in_array(['key'], $mainChar->getItems());
+                    if ($enemyChar->getName() !== 'Raizel') {
+                        echo "\t    You have killed the enemy\n";
 
-                    if (! $keyExist) $mainChar->grab(['key']);
+                        $keyExist = in_array(['key'], $mainChar->getItems());
+                        if (! $keyExist) $mainChar->grab(['key']);
+                    } else {
+                        echo "\t    You have killed the Noblesse\n";
+                    }
                     
                     return 'victory';
                 } elseif ($mainChar->getHealth() == 0) {

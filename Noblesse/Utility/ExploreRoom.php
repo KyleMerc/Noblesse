@@ -7,7 +7,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . 'Noblesse/start.php';
 use Noblesse\Storyline\Factory\NewRoomFactory;
 use Noblesse\Storyline\Interfaces\DirectionInterface;
 use Noblesse\Character\Character;
-use Noblesse\Utility\MainUtil as Char;
 
 class ExploreRoom
 {

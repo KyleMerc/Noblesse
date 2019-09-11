@@ -21,11 +21,15 @@ class FourthRoom extends Map
 
     public function wakeUpNoblesse(string $itemMerged): bool
     {
-        if ($itemMerged !== 'cooked ramen') return true;
+        if ($itemMerged !== 'prepared cooked ramen') return true;
 
         echo "\t    Am I missing something?!\n";
         echo "\t    (The phantom has given you a task to defeat the Noblesse)\n";
         return false;
     }
     
+    public function roomDialogue(): void
+    {
+        echo "\nThis is unexpected, why is he here?\n";
+    }
 }
