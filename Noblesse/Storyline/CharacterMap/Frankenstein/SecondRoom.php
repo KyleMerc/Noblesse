@@ -1,0 +1,54 @@
+<?php
+
+namespace Noblesse\Storyline\CharacterMap\Frankenstein;
+
+require_once $_SERVER['DOCUMENT_ROOT'] . "Noblesse/start.php";
+
+use Noblesse\Storyline\Map;
+
+class SecondRoom extends Map
+{
+    private $items;
+
+    public function __construct()
+    {
+        parent::__construct(
+            'Kitchen',
+            1,
+            2,
+            'secondRoom',
+            false
+        );
+
+        $this->items[] = 'coffeemug';
+        $this->items[] = 'ramen';
+    }
+
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    public function readSign(): string
+    {
+        $signBoard = <<<MSG
+            \n
+            ----------------------------------------
+           |                 HINT                   |
+           |  You really need a hotwater for obvious|
+           |  reasons.                              |
+           |  There is a packed of ramen noodle     |
+           |  inside the drawer.                    |
+           |  You can grab the 2 items.             |
+           |  Type [grab] command.                  |
+            ----------------------------------------\n
+MSG;
+
+        return $signBoard;
+    }
+
+    public function roomDialogue(): void
+    {
+        echo "\n\t    Hmmm. This place is clean, weird.\n";
+    }
+}
